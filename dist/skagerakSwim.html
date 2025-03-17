@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/style.scss">
+    <script type="module" src="/src/main.js"></script>
+    <link rel="icon" type="image/png" href="/favicon.ico">
+
+    <title>Skagerak Swim</title>
+  </head>
+  <body class="bg-customTeal p-0 flex flex-col min-h-screen">
+      <header class="relative bg-cover bg-center h-40 md:h-48 flex justify-between items-center px-6 md:px-12 bg-[url('/img/header-bg.jpg')]">
+        <!-- Empty div for spacing -->
+        <div class="w-24"></div>
+
+        <!-- Logo (Stays inside the header) -->
+        <img src="/img/ksaLogoResized.png" alt="KSA Logo" class="w-24 md:w-32 lg:w-40 max-w-full h-auto relative z-10">
+
+        <!-- Menu Button -->
+        <button id="openMenu" class="text-black text-lg font-semibold relative z-10">Meny</button>
+      </header>
+
+<!-- Fullscreen Menu (Hidden by Default) -->
+<nav id="menu"
+  class="fixed inset-0 bg-black bg-opacity-90 flex flex-col items-center justify-center text-white text-2xl">
+  <button id="closeMenu" class="absolute top-6 right-6 text-white text-3xl">
+      X
+  </button>
+  <ul class="space-y-6">
+    <li><a href="index.html" class="hover:text-gray-400">Hjem</a></li>
+    <li><a href="skagerakSwim.html" class="hover:text-gray-400">Skagerak Swim</a></li>
+    <li><a href="treningstider.html" class="hover:text-gray-400">Treningstider</a></li>
+    <li><a href="nyIKlubben.html" class="hover:text-gray-400">Ny i klubben?</a></li>
+    <li><a href="sponsorer.html" class="hover:text-gray-400">Sponsorer</a></li>
+  </ul>
+  
+</nav>
+
+    <main>
+
+    </main>
+
+    <footer class="relative mt-auto bg-cover bg-bottom h-20 md:h-28 text-black flex justify-center items-center bg-[url('/img/footer-bg.jpg')]">
+      <div class="absolute inset-0 bg-white/10"></div> <!-- Light overlay -->
+      <p class="relative z-10">&copy; 2025 Kristiansand Svømmeallianse</p>
+    </footer>
+    
+
+  </body>
+</html>
