@@ -17,7 +17,7 @@ export function setupTrainingSchedule() {
     { group: "A", day: "Onsdag", time: "15:45 - 17:30", location: "Aquarama", basis: "no" },
     { group: "A", day: "Torsdag", time: "16:00 - 18:00", location: "Spicheren", basis: "no" },
     { group: "A", day: "Fredag", time: "06:00 - 08:00", location: "Aquarama", basis: "no" },
-    { group: "A", day: "Fredag", time: "16:00 - 88:00", location: "Aquarama", basis: "no" },
+    { group: "A", day: "Fredag", time: "16:00 - 18:00", location: "Aquarama", basis: "no" },
     { group: "A", day: "Lørdag", time: "07:00 - 09:00", location: "Aquarama", basis: "no" },
     { group: "B", day: "Mandag", time: "16:00 - 18:00", location: "Aquarama", basis: "no" },
     { group: "B", day: "Tirsdag", time: "18:00 - 21:00", location: "Aquarama", basis: "yes" },
