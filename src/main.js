@@ -12,8 +12,8 @@ closeMenuBtn.addEventListener("click", () => {
   menu.classList.remove("active");
 });
 
-
-const basePath = window.location.hostname === 'localhost' ? '' : '/your-repo-name/';
+/*
+const basePath = window.location.hostname === 'localhost' ? '' : '/ksa/';
 
 document.querySelectorAll("nav a").forEach((link) => {
   const href = link.getAttribute("href");
@@ -23,7 +23,7 @@ document.querySelectorAll("nav a").forEach((link) => {
     link.href = basePath + "/" + href;
   }
 });
-
+*/
 
 
 
