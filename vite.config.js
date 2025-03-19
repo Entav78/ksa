@@ -1,26 +1,21 @@
 import { defineConfig } from "vite";
-import { createHtmlPlugin } from "vite-plugin-html";
+import { resolve } from "path";
 
 export default defineConfig({
-  base: "/ksa/",  // Ensure GitHub Pages uses the correct base path
-  plugins: [
-    createHtmlPlugin({ minify: true }), // Ensures all HTML files get processed
-  ],
+  base: "/ksa/",  // Ensure correct paths for GitHub Pages
   build: {
     rollupOptions: {
       input: {
-        main: "index.html",
-        nyIKlubben: "src/pages/nyIKlubben.html",
-        skagerakSwim: "src/pages/skagerakSwim.html",
-        sponsorer: "src/pages/sponsorer.html",
-        treningstider: "src/pages/treningstider.html",
-      },
-      output: {
-        assetFileNames: "assets/[name][extname]",
+        main: resolve(__dirname, "index.html"),  // Main index.html
+        skagerakSwim: resolve(__dirname, "src/pages/skagerakSwim.html"),
+        treningstider: resolve(__dirname, "src/pages/treningstider.html"),
+        nyIKlubben: resolve(__dirname, "src/pages/nyIKlubben.html"),
+        sponsorer: resolve(__dirname, "src/pages/sponsorer.html"),
       },
     },
   },
 });
+
 
 
 
