@@ -1,29 +1,20 @@
-import './style.scss';
+import "./style.scss";
+import { setupTrainingSchedule } from "./js/treningstider"; // Import training schedule
 
+// Menu Toggle (For All Pages)
 const menu = document.getElementById("menu");
 const openMenuBtn = document.getElementById("openMenu");
 const closeMenuBtn = document.getElementById("closeMenu");
 
-openMenuBtn.addEventListener("click", () => {
-  menu.classList.add("active");
-});
+if (openMenuBtn && closeMenuBtn) {
+  openMenuBtn.addEventListener("click", () => menu.classList.add("active"));
+  closeMenuBtn.addEventListener("click", () => menu.classList.remove("active"));
+}
 
-closeMenuBtn.addEventListener("click", () => {
-  menu.classList.remove("active");
-});
-
-/*
-const basePath = window.location.hostname === 'localhost' ? '' : '/ksa/';
-
-document.querySelectorAll("nav a").forEach((link) => {
-  const href = link.getAttribute("href");
-
-  // Only modify links that are NOT external or anchor links
-  if (href && !href.startsWith("http") && !href.startsWith("#")) {
-    link.href = basePath + "/" + href;
-  }
-});
-*/
+// Run treningstider logic **only** if we are on that page
+if (document.body.dataset.page === "treningstider") {
+  setupTrainingSchedule();
+} 
 
 
 

@@ -23,6 +23,14 @@
   }
 }
 
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9; /* Light gray */
+}
+tbody tr:hover {
+  background-color: #e3f2fd; /* Light blue */
+}
+
+
 
 
 
