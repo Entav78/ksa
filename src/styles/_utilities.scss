@@ -1,0 +1,62 @@
+/* Backgrounds */
+.bg-surface {
+  background-color: var(--bg-color);
+}
+
+.bg-header {
+  background-color: var(--header-bg-color);
+}
+
+.bg-footer {
+  background-color: var(--footer-bg-color);
+}
+
+/* Text */
+.text-primary {
+  color: var(--primary-color);
+}
+
+.text-secondary {
+  color: var(--secondary-color);
+}
+
+.text-main {
+  color: var(--text-color);
+}
+
+.text-muted {
+  color: var(--text-color); // Optional alias
+}
+
+/* Borders */
+.border-subtle {
+  border: 1px solid var(--table-border);
+}
+
+.border-bottom-subtle {
+  border-bottom: 1px solid var(--table-border);
+}
+
+/* Tables */
+.table-stripe {
+  background-color: var(--table-stripe);
+}
+
+.table-hover:hover {
+  background-color: var(--table-hover);
+}
+
+/* Forms */
+.form-select,
+.form-checkbox {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--table-border);
+}
+
+tr.today-row {
+  background-color: #1e3a8a;
+  /* Tailwind's blue-800 equivalent */
+  color: #ffffff;
+  font-weight: bold;
+}

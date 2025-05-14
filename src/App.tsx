@@ -1,15 +1,15 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Header } from './components/Header';
-import { Footer } from './components/Footer';
+import { Header } from './components/Header/Header';
+import { Footer } from './components/Footer/Footer';
 import { TreningstiderPage } from './pages/TreningstiderPage';
 
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="flex flex-col min-h-screen bg-customTeal">
+      <div className="flex flex-col min-h-screen">
         <Header />
 
-        <main className="flex-grow p-4">
+        <main className="flex-1 p-4">
           <Routes>
             <Route
               path="/"

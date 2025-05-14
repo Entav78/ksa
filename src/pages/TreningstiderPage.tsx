@@ -50,31 +50,33 @@ export function TreningstiderPage() {
   return (
     <div className="space-y-6">
       <h1 className="text-2xl font-bold">Treningstider</h1>
-      <p className="text-lg text-gray-700 mb-4">
+      <p className="text-lg text-muted mb-4">
         I dag er det <strong>{todayName}</strong>.
       </p>
 
-      <label htmlFor="groupSelect" className="font-semibold">
-        Velg gruppe:
-      </label>
-      <select
-        id="groupSelect"
-        value={selectedMode}
-        onChange={(e) => setSelectedMode(e.target.value)}
-        className="border p-2 rounded"
-      >
-        <option value="all">Alle</option>
-        <option value="A">Gruppe A</option>
-        <option value="B">Gruppe B</option>
-        <option value="C">Gruppe C</option>
-        <option value="D">Gruppe D</option>
-        <option value="E">Gruppe E</option>
-        <option value="F">Gruppe F</option>
-        <option value="multiple">Velg flere grupper</option>
-      </select>
+      <div className="flex flex-col gap-2 md:flex-row md:items-center md:gap-4">
+        <label htmlFor="groupSelect" className="font-semibold">
+          Velg gruppe:
+        </label>
+        <select
+          id="groupSelect"
+          value={selectedMode}
+          onChange={(e) => setSelectedMode(e.target.value)}
+          className="border p-2 rounded"
+        >
+          <option value="all">Alle</option>
+          <option value="A">Gruppe A</option>
+          <option value="B">Gruppe B</option>
+          <option value="C">Gruppe C</option>
+          <option value="D">Gruppe D</option>
+          <option value="E">Gruppe E</option>
+          <option value="F">Gruppe F</option>
+          <option value="multiple">Velg flere grupper</option>
+        </select>
+      </div>
 
       {selectedMode === 'multiple' && (
-        <div className="flex flex-wrap gap-4 mt-2">
+        <div className="flex flex-wrap gap-x-6 gap-y-2 mt-2 border-subtle p-2">
           {allGroups.map((group) => (
             <label key={group} className="flex items-center gap-2">
               <input
@@ -90,7 +92,7 @@ export function TreningstiderPage() {
 
       <ScheduleTable data={filteredData} todayName={todayName} />
 
-      <p className="text-sm text-gray-600 mt-6">Sist oppdatert: 10. mai 2025</p>
+      <p className="text-sm text-main mt-6">Sist oppdatert: 10. mai 2025</p>
     </div>
   );
 }

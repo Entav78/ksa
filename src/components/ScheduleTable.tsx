@@ -28,22 +28,32 @@ export function ScheduleTable({ data, todayName }: Props) {
         </tr>
       </thead>
       <tbody>
-        {data.map((entry, index) => (
-          <tr
-            key={index}
-            className={
-              entry.day.toLowerCase() === todayName ? 'bg-yellow-100' : ''
-            }
-          >
-            <td className="border p-2">{entry.group}</td>
-            <td className="border p-2">{entry.day}</td>
-            <td className="border p-2">{entry.time}</td>
-            <td className="border p-2">{entry.location}</td>
-            <td className="border p-2 text-center">
-              {entry.basis === 'yes' ? '🏋️‍♂️' : ''}
-            </td>
-          </tr>
-        ))}
+        {data.map((entry, index) => {
+          console.log(
+            'entry.day:',
+            entry.day.toLowerCase(),
+            '| todayName:',
+            todayName
+          );
+          const isToday =
+            entry.day.trim().toLowerCase() === todayName.trim().toLowerCase();
+          const rowClass = isToday ? 'text-black font-bold' : '';
+
+          return (
+            <tr key={index} className={rowClass}>
+              <td className="border p-2">{entry.group}</td>
+              <td className="border p-2">
+                {entry.day}
+                {isToday && '📍'}
+              </td>
+              <td className="border p-2">{entry.time}</td>
+              <td className="border p-2">{entry.location}</td>
+              <td className="border p-2 text-center">
+                {entry.basis === 'yes' ? '🏋️‍♂️' : ''}
+              </td>
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   );

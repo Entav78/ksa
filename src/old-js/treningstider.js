@@ -88,11 +88,11 @@ export function setupTrainingSchedule() {
   function createRow(entry) {
     const row = document.createElement("tr");
     row.innerHTML = `
-      <td class="border border-gray-300 p-2">${entry.group}</td>  
-      <td class="border border-gray-300 p-2">${entry.day}</td>
-      <td class="border border-gray-300 p-2">${entry.time}</td>
-      <td class="border border-gray-300 p-2">${entry.location}</td>
-      <td class="border border-gray-300 p-2 text-center">
+      <td class="border border-subtle p-2">${entry.group}</td>  
+      <td class="border border-subtle p-2">${entry.day}</td>
+      <td class="border border-subtle p-2">${entry.time}</td>
+      <td class="border border-subtle p-2">${entry.location}</td>
+      <td class="border border-subtle p-2 text-center">
         ${entry.basis === "yes" ? "🏋️‍♂️" : ""}
       </td>
     `;
