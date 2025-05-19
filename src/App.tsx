@@ -2,6 +2,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header/Header';
 import { Footer } from './components/Footer/Footer';
 import { TreningstiderPage } from './pages/TreningstiderPage';
+import { ThemeToggle } from '@/components/ThemeToggle';
+import { HomePage } from '@/pages/HomePage/HomePage';
 
 export default function App() {
   return (
@@ -11,18 +13,17 @@ export default function App() {
 
         <main className="flex-1 p-4">
           <Routes>
-            <Route
-              path="/"
-              element={
-                <h1 className="text-3xl font-bold">Velkommen til KSA</h1>
-              }
-            />
+            <Route path="/" element={<HomePage />} />
             <Route path="/treningstider" element={<TreningstiderPage />} />
             {/* Add more routes here */}
           </Routes>
         </main>
 
         <Footer />
+        {/* Theme Toggle flytende nede til høyre */}
+        <div className="fixed bottom-4 right-4 z-50">
+          <ThemeToggle />
+        </div>
       </div>
     </BrowserRouter>
   );

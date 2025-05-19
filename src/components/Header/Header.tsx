@@ -1,38 +1,83 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ksaLogo from '@/assets/img/ksaLogoResized.png';
-import './header.scss';
 import { toggleTheme } from '@/utils/themeToggle';
-import { useEffect, useState } from 'react';
+import { ThemeToggle } from '@/components/ThemeToggle';
+
+import './header.scss';
 
 export function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    document.body.classList.toggle('overflow-hidden', menuOpen);
+    return () => document.body.classList.remove('overflow-hidden');
+  }, [menuOpen]);
 
   useEffect(() => {
     setIsDark(document.documentElement.classList.contains('dark'));
   }, []);
 
-  const handleThemeToggle = () => {
+  function handleThemeToggle() {
     toggleTheme();
-    setIsDark(!isDark);
-  };
+    setIsDark((prev) => !prev);
+  }
+
   return (
-    <header className="relative bg-cover bg-center bg-[url('/img/header-bg.jpg')] h-40 md:h-48 flex justify-between items-center px-6 md:px-12 text-black dark:text-white">
-      <div className="w-24"></div>
+    <>
+      <header className="header relative z-50 text-white p-4 flex justify-between items-center">
+        <img
+          src={ksaLogo}
+          alt="KSA logo"
+          className="h-20 w-auto rounded-full"
+        />
 
-      <img src={ksaLogo} alt="KSA Logo" className="h-20 w-auto" />
+        <button
+          className="border px-3 py-1 rounded text-black dark:text-white"
+          onClick={() => {
+            console.log('Meny clicked');
+            setMenuOpen(!menuOpen);
+          }}
+        >
+          Meny
+        </button>
+      </header>
 
-      <nav className="z-10 flex flex-col gap-2 text-sm items-end">
-        <div className="space-x-4 text-black dark:text-white font-semibold">
+      {/* Slide-in sidebar menu */}
+      <div
+        className={`fixed top-0 right-0 h-full w-full bg-[var(--header-bg-color)] text-[var(--text-color)] transform transition-transform duration-300 shadow-lg border
+ ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+        id="menu"
+      >
+        <div className="flex justify-between items-center px-4 pt-6 pb-4 border-b border-white">
+          <span className="text-lg font-semibold">Meny</span>
+          <button onClick={() => setMenuOpen(false)} aria-label="Lukk meny">
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <ul className="flex flex-col gap-4 p-4 text-lg">
           <Link to="/">Hjem</Link>
           <Link to="/treningstider">Treningstider</Link>
-        </div>
-        <button
-          onClick={handleThemeToggle}
-          className="text-xs border border-current px-2 py-1 rounded hover:bg-surface/10"
-        >
-          {isDark ? '☀️ Lys modus' : '🌙 Mørk modus'}
-        </button>
-      </nav>
-    </header>
+          <Link to="/kontakt">Kontakt</Link>
+          <Link to="/nyIKlubben">Ny i klubben?</Link>
+
+          {/* Add more menu items here */}
+        </ul>
+      </div>
+    </>
   );
 }

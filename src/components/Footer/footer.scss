@@ -1,9 +1,24 @@
 .footer {
+  position: relative;
   background-image: url('/img/footer-bg.jpg');
   background-size: cover;
   background-position: bottom;
-  min-height: 6rem; 
+  min-height: 6rem; // ← this is the height you used!
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--overlay-color);
+    z-index: 0;
+  }
+
+  * {
+    position: relative;
+    z-index: 1;
+  }
 }
+  

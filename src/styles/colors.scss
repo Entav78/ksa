@@ -4,7 +4,7 @@
   --text-color: #000000;
   --primary-color: #0077b6;
   --secondary-color: #48cae4;
-  --footer-bg-color: #caf0f8;
+  
   --header-bg-color: #bde0fe;
   --table-stripe: #f9f9f9;
   --table-hover: #e3f2fd;
@@ -12,15 +12,15 @@
   --today-row-bg: #fff3cd;
   /* Light yellow */
   --today-row-text: #000000;
+  --overlay-color: rgba(0, 0, 0, 0.0);
 }
 
 /* Dark Theme */
 [data-theme="dark"] {
   --bg-color: #1a1a1a;
-  --text-color: #e0e0e0;
+  --text-color: #ffffff;
   --primary-color: #1e88e5;
   --secondary-color: #26c6da;
-  --footer-bg-color: #0d47a1;
   --header-bg-color: #1a1a1a;
   --table-stripe: #2a2a2a;
   --table-hover: #3b3b3b;
@@ -28,6 +28,7 @@
   --today-row-bg: #333300;
   /* Dark muted yellow */
   --today-row-text: #ffffff;
+  --overlay-color: rgba(0, 0, 0, 0.5);
 }
 
 main {
