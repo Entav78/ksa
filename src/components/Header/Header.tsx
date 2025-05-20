@@ -70,12 +70,31 @@ export function Header() {
         </div>
 
         <ul className="flex flex-col gap-4 p-4 text-lg">
-          <Link to="/">Hjem</Link>
-          <Link to="/treningstider">Treningstider</Link>
-          <Link to="/kontakt">Kontakt</Link>
-          <Link to="/nyIKlubben">Ny i klubben?</Link>
-
-          {/* Add more menu items here */}
+          <li>
+            <Link to="/" onClick={() => setMenuOpen(false)}>
+              Hjem
+            </Link>
+          </li>
+          <li>
+            <Link to="/treningstider" onClick={() => setMenuOpen(false)}>
+              Treningstider
+            </Link>
+          </li>
+          <li>
+            <Link to="/ny-i-klubben" onClick={() => setMenuOpen(false)}>
+              Ny i klubben
+            </Link>
+          </li>
+          <li>
+            <Link to="/skagerak-swim" onClick={() => setMenuOpen(false)}>
+              Skagerak Swim
+            </Link>
+          </li>
+          <li>
+            <Link to="/sponsorer" onClick={() => setMenuOpen(false)}>
+              Sponsorer
+            </Link>
+          </li>
         </ul>
       </div>
     </>
