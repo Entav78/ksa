@@ -17,8 +17,8 @@ export function ScheduleTable({ data, todayName }: Props) {
   }
 
   return (
-    <div className="px-1 sm:px-4">
-      <table className="w-full border border-collapse mt-4">
+    <div className="flex justify-center sm:justify-start px-2 sm:px-4">
+      <table className="w-full sm:w-auto border border-collapse mt-4">
         <thead>
           <tr>
             <th className="border p-2">Gruppe</th>
