@@ -17,7 +17,7 @@ export function ScheduleTable({ data, todayName }: Props) {
   }
 
   return (
-    <div className="overflow-x-auto w-full">
+    <div className="px-1 sm:px-4">
       <table className="w-full border border-collapse mt-4">
         <thead>
           <tr>
