@@ -3,7 +3,7 @@
   background-image: url('/img/footer-bg.jpg');
   background-size: cover;
   background-position: bottom;
-  min-height: 6rem; // ← this is the height you used!
+  min-height: 6rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,5 +20,9 @@
     position: relative;
     z-index: 1;
   }
+}
+
+footer p {
+  padding-bottom: 2rem; 
 }
   

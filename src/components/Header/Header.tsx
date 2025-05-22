@@ -46,7 +46,7 @@ export function Header() {
 
       {/* Slide-in sidebar menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-full bg-[var(--header-bg-color)] text-[var(--text-color)] transform transition-transform duration-300 shadow-lg border
+        className={`fixed top-0 right-0 h-full w-full bg-[var(--bg-color)] text-[var(--text-color)] transform transition-transform duration-300 shadow-lg border
  ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}
         id="menu"
       >
@@ -93,6 +93,11 @@ export function Header() {
           <li>
             <Link to="/sponsorer" onClick={() => setMenuOpen(false)}>
               Sponsorer
+            </Link>
+          </li>
+          <li>
+            <Link to="/svømmekurs" onClick={() => setMenuOpen(false)}>
+              Svømmekurs
             </Link>
           </li>
         </ul>

@@ -7,6 +7,7 @@ import { HomePage } from '@/pages/HomePage/HomePage';
 import { NyIKlubbenPage } from './pages/NyIKlubbenPage';
 import { SkagerakSwimPage } from './pages/SkagerakSwimPage';
 import { SponsorPage } from './pages/SponsorPage';
+import { KursPage } from './pages/KursPage';
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
             <Route path="/ny-i-klubben" element={<NyIKlubbenPage />} />
             <Route path="/skagerak-swim" element={<SkagerakSwimPage />} />
             <Route path="/sponsorer" element={<SponsorPage />} />
+            <Route path="/svømmekurs" element={<KursPage />} />
           </Routes>
         </main>
 
