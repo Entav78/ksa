@@ -22,7 +22,7 @@ export default function App() {
             <Route path="/ny-i-klubben" element={<NyIKlubbenPage />} />
             <Route path="/skagerak-swim" element={<SkagerakSwimPage />} />
             <Route path="/sponsorer" element={<SponsorPage />} />
-            <Route path="/svømmekurs" element={<KursPage />} />
+            <Route path="/kurs" element={<KursPage />} />
           </Routes>
         </main>
 

@@ -98,7 +98,7 @@ export function Header() {
             </Link>
           </li>
           <li>
-            <Link to="/svømmekurs" onClick={() => setMenuOpen(false)}>
+            <Link to="/kurs" onClick={() => setMenuOpen(false)}>
               Svømmekurs
             </Link>
           </li>
