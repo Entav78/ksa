@@ -1,4 +1,4 @@
-import svømmekursImg from '@/assets/img/svømmekursResized.png';
+import svømmekursImg from '@/assets/img/svommekurs-page.webp';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 
 export function KursPage() {
@@ -16,10 +16,8 @@ export function KursPage() {
 
       {/* Informasjon */}
       <p className="mb-4">
-        Kristiansand Svømmeallianse tilbyr svømmekurs for barn. Kursene våre
-        følger skoleruta og starter i begynnelsen av hvert semester – rett etter
-        skolestart i januar og august. Vi har svømmekurs på flere nivåer, fra
-        nybegynner til viderekomne.
+        Kristiansand Svømmeallianse tilbyr svømmekurs for barn. Vi har
+        svømmekurs på flere nivåer, fra nybegynner til viderekomne.
       </p>
 
       {/* Varsel */}

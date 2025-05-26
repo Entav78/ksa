@@ -27,11 +27,13 @@ export function Header() {
   return (
     <>
       <header className="header relative z-50 text-white p-4 flex justify-between items-center">
-        <img
-          src={ksaLogo}
-          alt="KSA logo"
-          className="h-20 w-auto rounded-full"
-        />
+        <Link to="/">
+          <img
+            src={ksaLogo}
+            alt="KSA logo"
+            className="h-20 w-auto rounded-full"
+          />
+        </Link>
 
         <button
           className="border px-3 py-1 rounded text-black dark:text-white"
@@ -46,7 +48,7 @@ export function Header() {
 
       {/* Slide-in sidebar menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-full bg-[var(--bg-color)] text-[var(--text-color)] transform transition-transform duration-300 shadow-lg border
+        className={`fixed top-0 right-0 h-full w-full max-w-sm bg-[var(--bg-color)] text-[var(--text-color)] transform transition-transform duration-300 shadow-lg border
  ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}
         id="menu"
       >
@@ -69,7 +71,7 @@ export function Header() {
           </button>
         </div>
 
-        <ul className="flex flex-col gap-4 p-4 text-lg">
+        <ul className="flex flex-col gap-4 p-4 text-lg pt-20">
           <li>
             <Link to="/" onClick={() => setMenuOpen(false)}>
               Hjem

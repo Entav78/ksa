@@ -1,11 +1,17 @@
+import { Link } from 'react-router-dom';
+import kursTeaserImg from '@/assets/img/svommekurs-link-to-page.png';
+
 // src/pages/HomePage/HomePage.tsx
 export function HomePage() {
   return (
-    <section>
-      <h1 className="text-3xl font-bold mb-4">Velkommen til KSA</h1>
-      <p className="text-lg">
-        Dette er hjemmesiden til Kristiansand Svømmeallianse.
-      </p>
+    <section className="my-8 text-center">
+      <Link to="/kurs">
+        <img
+          src={kursTeaserImg}
+          alt="Klikk her for å lære mer om svømmekurs"
+          className="rounded-lg shadow-md mx-auto hover:scale-105 transition-transform duration-300"
+        />
+      </Link>
     </section>
   );
 }

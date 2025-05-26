@@ -17,11 +17,14 @@ export function ScheduleTable({ data, todayName }: Props) {
   }
 
   return (
-    <div className="flex justify-center sm:justify-start px-2 sm:px-4">
-      <table className="w-full sm:w-auto border border-collapse mt-4">
+    <div className="overflow-x-auto max-w-full">
+      <table className="w-full border border-collapse mt-4">
         <thead>
           <tr>
-            <th className="border p-2">Gruppe</th>
+            <th className="border p-2 text-right sm:text-center">
+              <span className="sm:hidden">Gr.</span>
+              <span className="hidden sm:inline">Gruppe</span>
+            </th>
             <th className="border p-2">Dag</th>
             <th className="border p-2">Tid</th>
             <th className="border p-2">Sted</th>
@@ -30,19 +33,16 @@ export function ScheduleTable({ data, todayName }: Props) {
         </thead>
         <tbody>
           {data.map((entry, index) => {
-            console.log(
-              'entry.day:',
-              entry.day.toLowerCase(),
-              '| todayName:',
-              todayName
-            );
             const isToday =
               entry.day.trim().toLowerCase() === todayName.trim().toLowerCase();
             const rowClass = isToday ? 'text-black font-bold' : '';
 
             return (
               <tr key={index} className={rowClass}>
-                <td className="border p-2">{entry.group}</td>
+                <td className="border p-2 text-right sm:text-center">
+                  {entry.group}
+                </td>
+
                 <td className="border p-2">
                   {entry.day}
                   {isToday && '📍'}
