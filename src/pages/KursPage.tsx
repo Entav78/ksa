@@ -1,5 +1,6 @@
 import svømmekursImg from '@/assets/img/svommekurs-page.webp';
 import { FaExternalLinkAlt } from 'react-icons/fa';
+import { Nivaavelger } from '@/components/opplaering/Nivaavelger';
 
 export function KursPage() {
   return (
@@ -20,12 +21,12 @@ export function KursPage() {
         svømmekurs på flere nivåer, fra nybegynner til viderekomne.
       </p>
 
-      {/* Varsel */}
+      {/* Varsel 
       <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-4 mb-6 rounded">
         <strong>Obs:</strong> Nye kurs publiseres i{' '}
         <strong>begynnelsen av august</strong> og følger skolens ferier.
       </div>
-
+*/}
       {/* CTA */}
       {/* CTA */}
       <div className="text-center">
@@ -39,9 +40,10 @@ export function KursPage() {
         </a>
         <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
           Kursene legges ut i august og følger skoleruta. Trykk på knappen for å
-          se når nye kurs blir tilgjengelige.
+          se når nye kurs er tilgjengelige.
         </p>
       </div>
+      <Nivaavelger />
     </section>
   );
 }
