@@ -1,4 +1,3 @@
-import svømmekursImg from '@/assets/img/svommekurs-page.webp';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import { Nivaavelger } from '@/components/opplaering/Nivaavelger';
 import { tryggivannLinks } from '@/data/tryggivannLinks';
@@ -19,7 +18,7 @@ export function KursPage() {
   return (
     <section className="max-w-3xl mx-auto p-4">
       {/* Overskrift */}
-      <h1 className="text-3xl font-bold mb-4">Svømmekurs hos KSA</h1>
+      <h1 className="text-3xl font-bold mb-4">Svømmeopplæring hos KSA</h1>
 
       {/* Nivåvelger */}
       <Nivaavelger />
