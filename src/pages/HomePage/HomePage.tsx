@@ -6,6 +6,7 @@ import antidoping from '@/assets/logoer/antidoping.png';
 //import samarbeid from '@/assets/logoer/samarbeidspartnere.png';
 //import sponsorer from '@/assets/logoer/sponsorer.png';
 import skagerrak from '@/assets/logoer/skagerrak.png';
+import SocialMedia from '@/components/social/SocialMedia';
 
 import { PartnerGrid, PartnerItem } from '@/components/home/PartnerGrid';
 
@@ -76,24 +77,7 @@ export function HomePage() {
         vilje, lojalitet og samhold i sentrum.
       </p>
 
-      {/* TODO: Bytt ut med ekte iframe fra SnapWidget når vi får tilgang til Instagram og Facebook */}
-      {/*
-      <div className="instagram-feed"> 
-      <iframe
-        src="DIN-SNAPWIDGET-IFRAME-URL"
-        style={{ border: 0, width: '100%', height: '500px' }}
-        allowtransparency="true"
-        frameBorder="0"
-        scrolling="no"
-        title="Instagram Feed"
-      ></iframe>
-      </div>*/}
-      <div className="text-center my-8 text-gray-500 italic">
-        Instagram-feed kommer snart!
-      </div>
-      <div className="text-center my-8 text-gray-500 italic">
-        Facebook-feed kommer snart!
-      </div>
+      <SocialMedia />
       <PartnerGrid items={items} />
     </section>
   );
