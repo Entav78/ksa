@@ -1,8 +1,7 @@
-// src/pages/NyIKlubbenPage.tsx
 import { Link } from 'react-router-dom';
 import { Faq } from '@/components/faq/Faq';
 
-export function NyIKlubbenPage() {
+export function NewToClubPage() {
   return (
     <section className="max-w-4xl mx-auto px-4 py-8 text-text">
       <h1 className="text-3xl font-bold mb-2">Ny i klubben</h1>

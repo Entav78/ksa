@@ -105,26 +105,6 @@ export function MenuOverlay({ open, onClose }: Props) {
           </Link>
 
           <Link
-            to="/skagerak-swim"
-            onClick={onClose}
-            className={`${linkBase} ${
-              isActive('/skagerak-swim') ? 'font-semibold' : ''
-            }`}
-          >
-            Skagerak Swim
-          </Link>
-
-          <Link
-            to="/sponsorer"
-            onClick={onClose}
-            className={`${linkBase} ${
-              isActive('/sponsorer') ? 'font-semibold' : ''
-            }`}
-          >
-            Sponsorer
-          </Link>
-
-          <Link
             to="/kurs"
             onClick={onClose}
             className={`${linkBase} ${

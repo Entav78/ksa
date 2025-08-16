@@ -3,8 +3,8 @@ import {
   scheduleData,
   lastUpdated,
   type ScheduleEntry,
-} from '../data/scheduleData';
-import ScheduleTable from '../components/ScheduleTable';
+} from '@/data/scheduleData';
+import ScheduleTable from '@/components/ScheduleTable';
 
 // Norsk ukedag (samme som i data)
 const weekdays = [
