@@ -2,6 +2,7 @@ import { FaExternalLinkAlt } from 'react-icons/fa';
 import { Nivaavelger } from '@/components/opplaering/Nivaavelger';
 import { tryggivannLinks } from '@/data/tryggivannLinks';
 import { useState } from 'react';
+import { Faq } from '@/components/faq/Faq';
 
 export function KursPage() {
   const [selectedCourse, setSelectedCourse] = useState('');
@@ -46,6 +47,7 @@ export function KursPage() {
           <option value="sjolove">Sjøløve</option>
         </select>
       </div>
+      <Faq />
     </section>
   );
 }

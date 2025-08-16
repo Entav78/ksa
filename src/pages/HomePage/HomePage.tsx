@@ -7,8 +7,8 @@ import antidoping from '@/assets/logoer/antidoping.png';
 //import sponsorer from '@/assets/logoer/sponsorer.png';
 import skagerrak from '@/assets/logoer/skagerrak.png';
 import SocialMedia from '@/components/social/SocialMedia';
-
 import { PartnerGrid, PartnerItem } from '@/components/home/PartnerGrid';
+import { SiteSearch } from '@/components/search/SiteSearch';
 
 const items: PartnerItem[] = [
   {
@@ -52,6 +52,7 @@ const items: PartnerItem[] = [
 export function HomePage() {
   return (
     <section className="my-8 text-center">
+      <SiteSearch />
       <Link
         to="/kurs"
         className="relative block mx-auto w-full max-w-4xl group"
