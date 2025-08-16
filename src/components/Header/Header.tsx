@@ -19,11 +19,12 @@ export const Header = () => {
       {/* Fast header på toppen */}
       <header
         className="
-        header
-        fixed top-0 inset-x-0 z-50
-        p-4 flex justify-between items-center
-        text-gray-900 dark:text-white
-      "
+    header
+    fixed top-0 inset-x-0 z-50
+    text-text
+    p-4 flex justify-between items-center
+    shadow-sm
+  "
       >
         <Link to="/" className="shrink-0">
           <img
@@ -34,16 +35,17 @@ export const Header = () => {
         </Link>
 
         <div className="flex items-center gap-3">
-          {/* <ThemeToggle /> hvis du vil ha den i headeren */}
           <button
             onClick={() => setMenuOpen(true)}
             aria-label="Åpne meny"
             className="
-        rounded border px-3 py-1
-        bg-white/80 text-gray-900
-        dark:bg-white/10 dark:text-white
-        hover:bg-white dark:hover:bg-white/15
+        rounded px-3 py-1
+        bg-background text-text
+        border border-text
+        hover:bg-hover
         transition
+        focus:outline-none focus:ring-2 focus:ring-primary/50
+        active:opacity-90
       "
           >
             Meny

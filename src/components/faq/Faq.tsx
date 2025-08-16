@@ -9,7 +9,7 @@ const defaultFaq: FaqItem[] = [
   },
   {
     q: 'Hva bør vi ha med?',
-    a: 'Badetøy, håndkle og evt. svømmebriller (NB svømmebriller skal ikke brukes på Hval, Skilpadde og Pingin). Langt hår: bruk strikk eller badehette.',
+    a: 'Badetøy, håndkle og evt. svømmebriller (NB svømmebriller skal ikke brukes på Hval, Skilpadde og Pingvin). Langt hår: bruk strikk eller badehette.',
   },
   {
     q: 'Hvor lenge varer et kurs?',
@@ -29,28 +29,26 @@ export function Faq({ items = defaultFaq }: { items?: FaqItem[] }) {
   const [open, setOpen] = useState<number | null>(null);
   return (
     <section className="max-w-3xl mx-auto my-10 px-4">
-      <h2 className="text-2xl font-bold mb-4">Ofte stilte spørsmål</h2>
+      <h2 className="text-2xl font-bold mb-4 text-primary">
+        Ofte stilte spørsmål
+      </h2>
       <ul className="space-y-2">
         {items.map((it, idx) => {
           const isOpen = open === idx;
           return (
             <li
               key={idx}
-              className="border border-gray-200 dark:border-gray-700 rounded-lg"
+              className="border border-border rounded-lg bg-background"
             >
               <button
-                className="w-full text-left px-4 py-3 flex justify-between items-center"
+                className="w-full text-left px-4 py-3 flex justify-between items-center text-text"
                 onClick={() => setOpen(isOpen ? null : idx)}
                 aria-expanded={isOpen}
               >
                 <span className="font-medium">{it.q}</span>
                 <span className="ml-4">{isOpen ? '−' : '+'}</span>
               </button>
-              {isOpen && (
-                <div className="px-4 pb-4 text-gray-700 dark:text-gray-300">
-                  {it.a}
-                </div>
-              )}
+              {isOpen && <div className="px-4 pb-4 text-text">{it.a}</div>}
             </li>
           );
         })}

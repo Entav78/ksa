@@ -1,0 +1,12 @@
+.menu {
+  background-color: var(--header-bg-color);
+  color: var(--text-color);
+}
+
+.partner-link {
+  color: var(--primary-color);
+
+  &:hover {
+    color: var(--secondary-color);
+  }
+}

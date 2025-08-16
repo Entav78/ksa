@@ -1,4 +1,6 @@
-export const lastUpdated = '10. mai 2025';
+// data/scheduleData.ts
+export const lastUpdated = '2025-05-10'; // ISO YYYY-MM-DD
+// ...export const scheduleData = [...]
 
 export type ScheduleEntry = {
   group: string;

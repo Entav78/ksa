@@ -21,23 +21,25 @@ export function SiteSearch() {
         <input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search..."
+          placeholder="Søk..."
           className="
-            w-full rounded-lg border
-            border-gray-300 bg-white text-black
-            dark:border-gray-700 dark:bg-gray-800 dark:text-white
-            dark:placeholder-gray-400
+            w-full rounded-lg border border-border
+            bg-background text-text
+            placeholder-text/60
             pl-4 pr-24 py-2
+            focus:outline-none focus:ring-2 focus:ring-primary/50
           "
         />
         <button
           type="submit"
           className="
-  absolute right-1 top-1 bottom-1 px-4 rounded-md text-sm font-medium
-  bg-white text-gray-900 border border-gray-300 hover:bg-gray-50
-  dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700
-  transition-colors
-"
+            absolute right-1 top-1 bottom-1
+            px-4 rounded-md text-sm font-medium
+            bg-background text-text border border-border
+            hover:bg-hover
+            transition
+            focus:outline-none focus:ring-2 focus:ring-primary/50
+          "
         >
           Søk
         </button>

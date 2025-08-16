@@ -19,9 +19,9 @@ export default function SocialCard({ platform, profileUrl, feedSrc }: Props) {
   const hasFeed = !!feedSrc && /^https?:\/\//.test(feedSrc);
 
   return (
-    <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-sm overflow-hidden">
+    <div className="rounded-xl border border-border bg-background text-text shadow-sm overflow-hidden">
       {/* Header */}
-      <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-200 dark:border-gray-700">
+      <div className="flex items-center gap-3 px-4 py-3 border-b border-border">
         <span>{platformIcon[platform]}</span>
         <h3 className="font-semibold">{platform}</h3>
       </div>
@@ -41,7 +41,7 @@ export default function SocialCard({ platform, profileUrl, feedSrc }: Props) {
             />
           </div>
         ) : (
-          <div className="h-28 rounded-lg flex items-center justify-center bg-gray-100 dark:bg-gray-800 text-gray-500">
+          <div className="h-28 rounded-lg flex items-center justify-center bg-hover text-text/70">
             {platform} feed kommer snart
           </div>
         )}
@@ -54,12 +54,19 @@ export default function SocialCard({ platform, profileUrl, feedSrc }: Props) {
             href={profileUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center w-full rounded-md px-4 py-2 text-sm bg-blue-600 hover:bg-blue-700 text-white transition"
+            className="
+              inline-flex items-center justify-center w-full
+              rounded-md px-4 py-2 text-sm
+              bg-primary text-text
+              hover:opacity-90
+              transition
+              focus:outline-none focus:ring-2 focus:ring-primary/50
+            "
           >
             Lenke til {platform}
           </a>
         ) : (
-          <div className="text-center text-sm text-gray-500">
+          <div className="text-center text-sm text-text/70">
             Lenke kommer snart
           </div>
         )}

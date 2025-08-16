@@ -17,7 +17,7 @@ type Result = {
   image?: string;
 };
 
-export function Nivaavelger() {
+export function LevelSelector() {
   const [stepIndex, setStepIndex] = useState(0);
   const [result, setResult] = useState<Result | null>(null);
   const [history, setHistory] = useState<number[]>([]);
@@ -54,7 +54,7 @@ export function Nivaavelger() {
   };
 
   return (
-    <div className="mt-12 p-6 rounded-lg shadow-md bg-white dark:bg-gray-800">
+    <div className="mt-12 p-6 rounded-lg shadow-md bg-background text-text">
       <h2 className="text-2xl font-bold mb-4 text-center">Finn riktig nivå</h2>
 
       {result ? (
@@ -71,14 +71,14 @@ export function Nivaavelger() {
             href={result.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-blue-600 text-white px-5 py-2 rounded hover:bg-blue-700 transition"
+            className="inline-block bg-primary text-text px-5 py-2 rounded hover:bg-secondary transition"
           >
             Gå til påmelding
           </a>
           <div className="mt-4">
             <button
               onClick={handleRestart}
-              className="text-sm text-blue-500 underline hover:text-blue-700"
+              className="text-sm underline text-primary hover:text-secondary"
             >
               Start på nytt
             </button>
@@ -95,23 +95,22 @@ export function Nivaavelger() {
           <div className="flex justify-center gap-6">
             <button
               onClick={() => handleAnswer('yes')}
-              className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition"
+              className="bg-yes text-text px-6 py-2 rounded hover:opacity-90 transition"
             >
               Ja
             </button>
             <button
               onClick={() => handleAnswer('no')}
-              className="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition"
+              className="bg-no text-text px-6 py-2 rounded hover:opacity-90 transition"
             >
               Nei
             </button>
           </div>
 
-          {/* 👇 Legg til dette rett etter Ja/Nei-knappene */}
           {history.length > 0 && (
             <button
               onClick={handleBack}
-              className="mt-4 text-sm underline text-blue-500 hover:text-blue-700"
+              className="mt-4 text-sm underline text-primary hover:text-secondary"
             >
               ← Tilbake
             </button>

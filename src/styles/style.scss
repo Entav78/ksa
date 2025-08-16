@@ -1,16 +1,14 @@
-@use './colors';
-@use './menu';
-@use './table';
-@use './utilities';
-@use './partner';
+@use 'colors';
+@use 'menu';
+@use 'table';
+@use 'utilities';
+@use 'partner';
 
 
-
-
-
-
-
-
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
 
 
 

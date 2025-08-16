@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react';
-import { scheduleData, ScheduleEntry, lastUpdated } from '../data/scheduleData';
-import { ScheduleTable } from '../components/ScheduleTable';
+import {
+  scheduleData,
+  lastUpdated,
+  type ScheduleEntry,
+} from '../data/scheduleData';
+import ScheduleTable from '../components/ScheduleTable';
 
+// Norsk ukedag (samme som i data)
 const weekdays = [
   'mandag',
   'tirsdag',
@@ -12,9 +17,21 @@ const weekdays = [
   'søndag',
 ];
 
+// Gjør Date.getDay() om til norsk indeks (man=0)
 const today = new Date();
 const adjustedIndex = (today.getDay() + 6) % 7;
 const todayName = weekdays[adjustedIndex];
+
+// Liten, lokal datoformatter (slipper utils-fil akkurat nå)
+function formatDateISO(iso: string, locale = 'nb-NO') {
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return iso;
+  return new Intl.DateTimeFormat(locale, {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric',
+  }).format(d);
+}
 
 const allGroups = ['A', 'B', 'C', 'D', 'E', 'F'];
 
@@ -33,24 +50,21 @@ export function TreningstiderPage() {
   const toggleGroup = (group: string) => {
     setSelectedGroups((prev) => {
       const updated = new Set(prev);
-      if (updated.has(group)) {
-        updated.delete(group);
-      } else {
-        updated.add(group);
-      }
+      if (updated.has(group)) updated.delete(group);
+      else updated.add(group);
       return updated;
     });
   };
 
-  const filteredData =
+  const filteredData: ScheduleEntry[] =
     selectedGroups.size === 0
       ? scheduleData
       : scheduleData.filter((entry) => selectedGroups.has(entry.group));
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 text-text">
       <h1 className="text-2xl font-bold">Treningstider</h1>
-      <p className="text-lg text-muted mb-4">
+      <p className="text-lg text-text/80">
         I dag er det <strong>{todayName}</strong>.
       </p>
 
@@ -62,7 +76,11 @@ export function TreningstiderPage() {
           id="groupSelect"
           value={selectedMode}
           onChange={(e) => setSelectedMode(e.target.value)}
-          className="border p-2 rounded"
+          className="
+            border border-border rounded p-2
+            bg-background text-text
+            focus:outline-none focus:ring-2 focus:ring-primary/50
+          "
         >
           <option value="all">Alle</option>
           <option value="A">Gruppe A</option>
@@ -76,7 +94,13 @@ export function TreningstiderPage() {
       </div>
 
       {selectedMode === 'multiple' && (
-        <div className="flex flex-wrap gap-x-6 gap-y-2 mt-2 border-subtle p-2">
+        <div
+          className="
+            mt-2 flex flex-wrap gap-x-6 gap-y-2
+            p-3 rounded
+            border border-border bg-background
+          "
+        >
           {allGroups.map((group) => (
             <label key={group} className="flex items-center gap-2">
               <input
@@ -84,7 +108,7 @@ export function TreningstiderPage() {
                 checked={selectedGroups.has(group)}
                 onChange={() => toggleGroup(group)}
               />
-              Gruppe {group}
+              <span>Gruppe {group}</span>
             </label>
           ))}
         </div>
@@ -92,7 +116,10 @@ export function TreningstiderPage() {
 
       <ScheduleTable data={filteredData} todayName={todayName} />
 
-      <p className="text-sm text-main mt-6">Sist oppdatert: 10. mai 2025</p>
+      <p className="text-sm text-text/70 mt-6">
+        Sist oppdatert:{' '}
+        <time dateTime={lastUpdated}>{formatDateISO(lastUpdated)}</time>
+      </p>
     </div>
   );
 }

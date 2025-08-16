@@ -30,17 +30,41 @@ export function ThemeToggle() {
   }
 
   return (
-    <div className="bg-white dark:bg-gray-800 border dark:border-gray-600 text-gray-800 dark:text-white px-2 py-1 rounded-full shadow-md flex items-center gap-2 transition-colors">
-      <span>🌞</span>
-      <div
-        className={`w-14 h-7 flex items-center rounded-full p-1 cursor-pointer transition-all duration-300 ${
-          isDark ? 'bg-gray-600 justify-end' : 'bg-gray-300 justify-start'
-        }`}
+    <div
+      className="
+        bg-background text-text border border-border
+        px-2 py-1 rounded-full shadow-md
+        flex items-center gap-2 transition-colors
+      "
+    >
+      <span aria-hidden>🌞</span>
+
+      <button
+        type="button"
+        role="switch"
+        aria-checked={isDark}
+        aria-label="Bytt tema"
         onClick={handleToggle}
+        className={`
+          w-14 h-7 rounded-full p-1
+          flex items-center ${isDark ? 'justify-end' : 'justify-start'}
+          bg-hover
+          transition-all duration-300
+          focus:outline-none focus:ring-2 focus:ring-primary/50
+        `}
       >
-        <div className="w-5 h-5 bg-white rounded-full shadow-md" />
-      </div>
-      <span>🌙</span>
+        <span
+          aria-hidden
+          className="
+            w-5 h-5 rounded-full
+            bg-background border border-border
+            shadow-md
+            transition-transform
+          "
+        />
+      </button>
+
+      <span aria-hidden>🌙</span>
     </div>
   );
 }

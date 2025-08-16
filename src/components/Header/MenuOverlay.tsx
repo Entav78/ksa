@@ -11,14 +11,12 @@ export function MenuOverlay({ open, onClose }: Props) {
   const isMobile = useIsMobile();
 
   const linkBase = `
-  block rounded px-1
-  no-underline hover:underline underline-offset-4
-  text-gray-900 dark:text-white
-  hover:text-primary dark:hover:text-primary
-  transition
-  focus:outline-none focus-visible:ring-2
-  focus-visible:ring-black/20 dark:focus-visible:ring-white/30
-`;
+    block rounded px-1
+    no-underline hover:underline underline-offset-4
+    text-text hover:text-primary
+    transition
+    focus:outline-none focus-visible:ring-2 focus-visible:ring-primary
+  `;
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -26,7 +24,7 @@ export function MenuOverlay({ open, onClose }: Props) {
     <div className="fixed inset-0 z-[1000]">
       {/* bakgrunn */}
       <button
-        className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+        className="absolute inset-0 bg-[var(--overlay-color)] backdrop-blur-sm"
         onClick={onClose}
         aria-label="Lukk meny"
       />
@@ -38,19 +36,17 @@ export function MenuOverlay({ open, onClose }: Props) {
         className={`
           absolute right-0 top-0 h-screen
           w-full sm:max-w-sm
-          bg-white text-gray-900
-          dark:bg-neutral-900 dark:text-white
-          shadow-xl border-l
-          border-black/10 dark:border-white/10
+          bg-background text-text
+          shadow-xl border-l border-border
           transform transition-transform duration-300
           ${isMobile ? 'animate-fadeIn' : 'translate-x-0'}
         `}
       >
         <div
           className="
-          flex justify-between items-center px-4 pt-6 pb-4
-          border-b border-black/10 dark:border-white/10
-        "
+            flex justify-between items-center px-4 pt-6 pb-4
+            border-b border-border
+          "
         >
           <span className="text-lg font-semibold">Meny</span>
           <button
@@ -58,8 +54,9 @@ export function MenuOverlay({ open, onClose }: Props) {
             aria-label="Lukk meny"
             className="
               p-2 rounded
-              hover:bg-black/5 dark:hover:bg-white/10
+              hover:bg-hover
               transition
+              focus:outline-none focus-visible:ring-2 focus-visible:ring-primary
             "
           >
             <svg

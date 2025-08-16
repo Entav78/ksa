@@ -14,7 +14,7 @@ export function PartnerGrid({ items }: Props) {
     <section aria-labelledby="partnergrid-title" className="mt-10">
       <h2
         id="partnergrid-title"
-        className="text-xl font-semibold text-center mb-4"
+        className="text-xl font-semibold text-center mb-4 text-text"
       >
         Samarbeid og støtte
       </h2>
@@ -31,8 +31,8 @@ export function PartnerGrid({ items }: Props) {
               <div
                 className="
                   h-24 sm:h-28 md:h-32
-                  rounded-xl border border-gray-200 dark:border-gray-700
-                  bg-white dark:bg-gray-800
+                  rounded-xl border border-border
+                  bg-background text-text
                   shadow-sm
                   flex items-center justify-center
                   p-3
@@ -56,13 +56,22 @@ export function PartnerGrid({ items }: Props) {
                 href={it.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 rounded-xl"
+                className="
+                  group relative rounded-xl
+                  focus:outline-none
+                  focus-visible:ring-2 focus-visible:ring-[var(--primary-color)]
+                  focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-color)]
+                "
               >
                 {Card}
                 <span className="sr-only">{it.title} – åpnes i ny fane</span>
                 <FaExternalLinkAlt
                   aria-hidden
-                  className="absolute top-2 right-2 opacity-0 group-hover:opacity-70 text-sm"
+                  className="
+                    absolute top-2 right-2 text-primary
+                    opacity-0 group-hover:opacity-70 transition
+                    text-sm
+                  "
                 />
               </a>
             ) : (

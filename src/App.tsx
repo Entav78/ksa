@@ -5,8 +5,6 @@ import { TreningstiderPage } from './pages/TreningstiderPage';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { HomePage } from '@/pages/HomePage/HomePage';
 import { NyIKlubbenPage } from './pages/NyIKlubbenPage';
-import { SkagerakSwimPage } from './pages/SkagerakSwimPage';
-import { SponsorPage } from './pages/SponsorPage';
 import { KursPage } from './pages/KursPage';
 import { SearchResults } from './pages/SearchResults';
 
@@ -21,8 +19,6 @@ export default function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/treningstider" element={<TreningstiderPage />} />
             <Route path="/ny-i-klubben" element={<NyIKlubbenPage />} />
-            <Route path="/skagerak-swim" element={<SkagerakSwimPage />} />
-            <Route path="/sponsorer" element={<SponsorPage />} />
             <Route path="/kurs" element={<KursPage />} />
             <Route path="/search" element={<SearchResults />} />
           </Routes>

@@ -8,7 +8,7 @@ interface SocialFeedProps {
 
 const SocialFeed: React.FC<SocialFeedProps> = ({ platform, src, linkUrl }) => {
   return (
-    <div className="bg-gray-900 text-white rounded-2xl p-4 shadow-md border border-gray-700">
+    <div className="bg-background text-text rounded-2xl p-4 shadow-md border border-border">
       <h3 className="text-lg font-semibold mb-3 text-center">{platform}</h3>
 
       {src ? (
@@ -18,7 +18,7 @@ const SocialFeed: React.FC<SocialFeedProps> = ({ platform, src, linkUrl }) => {
           allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
         />
       ) : (
-        <div className="w-full h-48 flex items-center justify-center text-gray-400 bg-gray-800 rounded-lg">
+        <div className="w-full h-48 flex items-center justify-center rounded-lg bg-hover text-text/70">
           {platform} feed kommer snart
         </div>
       )}
@@ -29,7 +29,7 @@ const SocialFeed: React.FC<SocialFeedProps> = ({ platform, src, linkUrl }) => {
             href={linkUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-400 hover:underline"
+            className="text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary/50"
           >
             Lenke til {platform}
           </a>
