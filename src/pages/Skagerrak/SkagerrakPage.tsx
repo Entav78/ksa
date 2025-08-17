@@ -1,19 +1,34 @@
-// src/pages/SkagerrakSwimPage.tsx
-export default function Skagerrak() {
+export default function SkagerrakPage() {
   return (
     <section className="max-w-3xl mx-auto px-4 py-8 bg-background text-text">
-      <h1 className="text-2xl font-bold mb-4">Skagerrak Swim</h1>
-      <p className="text-text/80 mb-4">
-        Mer informasjon finner du på skagerrakswim.no.
+      <h1 className="text-3xl font-bold mb-3">Skagerrak Swim</h1>
+      <p className="text-text/80 mb-6">
+        Skagerrak Swim er vårt store årlige arrangement. All praktisk
+        informasjon, påmelding og nyheter finner du på den offisielle nettsiden.
       </p>
-      <a
-        href="https://skagerrakswim.no/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-block bg-primary text-text px-4 py-2 rounded hover:bg-secondary transition"
-      >
-        Gå til Skagerrak Swim
-      </a>
+
+      <div className="flex flex-wrap gap-3">
+        <a
+          href="https://skagerrakswim.no/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center rounded-md px-4 py-2 bg-primary text-text hover:opacity-90 transition"
+        >
+          Gå til skagerrakswim.no
+        </a>
+        <a
+          href="/dugnad"
+          className="inline-flex items-center rounded-md px-4 py-2 bg-secondary text-text hover:bg-hover transition"
+        >
+          Frivillighet / dugnad
+        </a>
+        <a
+          href="/kontakt"
+          className="inline-flex items-center rounded-md px-4 py-2 border border-border hover:bg-hover transition"
+        >
+          Kontakt oss
+        </a>
+      </div>
     </section>
   );
 }

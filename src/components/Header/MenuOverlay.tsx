@@ -15,8 +15,43 @@ export function MenuOverlay({ open, onClose }: Props) {
     no-underline hover:underline underline-offset-4
     text-text hover:text-primary
     transition
-    focus:outline-none focus-visible:ring-2 focus-visible:ring-primary
+    focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40
   `;
+
+  const items: Array<{ label: string; to: string }> = [
+    { label: 'Forside', to: '/' },
+
+    // Kurs / opplæring
+    { label: 'Svømmeopplæring', to: '/kurs' },
+
+    // Trening
+    { label: 'Treningstider', to: '/treningstider' },
+    { label: 'Terminliste', to: '/terminliste' },
+    { label: 'Grupper', to: '/grupper' },
+    { label: 'Trenere', to: '/trenere' },
+    { label: 'Utstyr', to: '/utstyr' },
+
+    // Medlemskap
+    { label: 'Medlemskap', to: '/medlemskap' },
+    { label: 'Ny i klubben', to: '/ny-i-klubben' },
+
+    // Om klubben
+    { label: 'Om klubben', to: '/om' },
+    { label: 'Verdier & mål', to: '/om/verdier-mal' },
+    { label: 'Styret & organisasjon', to: '/om/styret' },
+    { label: 'Årsmøter', to: '/om/arsmoter' },
+
+    // Dugnader
+    { label: 'Dugnad', to: '/dugnad' },
+
+    // Kontakt
+    { label: 'Kontakt', to: '/kontakt' },
+    { label: 'Hvor trener vi?', to: '/kontakt/steder' },
+    { label: 'Sosiale medier', to: '/sosiale-medier' },
+
+    // Eksternt innhold / egen side
+    { label: 'Skagerrak Swim', to: '/skagerrak-swim' },
+  ];
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -24,12 +59,12 @@ export function MenuOverlay({ open, onClose }: Props) {
     <div className="fixed inset-0 z-[1000]">
       {/* bakgrunn */}
       <button
-        className="absolute inset-0 bg-[var(--overlay-color)] backdrop-blur-sm"
+        className="absolute inset-0 bg-overlay backdrop-blur-sm"
         onClick={onClose}
         aria-label="Lukk meny"
       />
 
-      {/* panel: full bredde på mobil, smal panel på større skjermer */}
+      {/* panel */}
       <aside
         role="dialog"
         aria-modal="true"
@@ -42,22 +77,12 @@ export function MenuOverlay({ open, onClose }: Props) {
           ${isMobile ? 'animate-fadeIn' : 'translate-x-0'}
         `}
       >
-        <div
-          className="
-            flex justify-between items-center px-4 pt-6 pb-4
-            border-b border-border
-          "
-        >
+        <div className="flex justify-between items-center px-4 pt-6 pb-4 border-b border-border">
           <span className="text-lg font-semibold">Meny</span>
           <button
             onClick={onClose}
             aria-label="Lukk meny"
-            className="
-              p-2 rounded
-              hover:bg-hover
-              transition
-              focus:outline-none focus-visible:ring-2 focus-visible:ring-primary
-            "
+            className="p-2 rounded hover:bg-hover transition"
           >
             <svg
               className="w-6 h-6"
@@ -76,43 +101,17 @@ export function MenuOverlay({ open, onClose }: Props) {
         </div>
 
         <nav className="flex flex-col px-4 py-6 space-y-4 text-lg">
-          <Link
-            to="/"
-            onClick={onClose}
-            className={`${linkBase} ${isActive('/') ? 'font-semibold' : ''}`}
-          >
-            Hjem
-          </Link>
-
-          <Link
-            to="/treningstider"
-            onClick={onClose}
-            className={`${linkBase} ${
-              isActive('/treningstider') ? 'font-semibold' : ''
-            }`}
-          >
-            Treningstider
-          </Link>
-
-          <Link
-            to="/ny-i-klubben"
-            onClick={onClose}
-            className={`${linkBase} ${
-              isActive('/ny-i-klubben') ? 'font-semibold' : ''
-            }`}
-          >
-            Ny i klubben
-          </Link>
-
-          <Link
-            to="/kurs"
-            onClick={onClose}
-            className={`${linkBase} ${
-              isActive('/kurs') ? 'font-semibold' : ''
-            }`}
-          >
-            Svømmeopplæring
-          </Link>
+          {items.map(({ label, to }) => (
+            <Link
+              key={to}
+              to={to}
+              onClick={onClose}
+              className={`${linkBase} ${isActive(to) ? 'font-semibold' : ''}`}
+              aria-current={isActive(to) ? 'page' : undefined}
+            >
+              {label}
+            </Link>
+          ))}
         </nav>
       </aside>
     </div>,

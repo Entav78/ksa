@@ -38,7 +38,7 @@ import { PricesPage } from '@/pages/Membership/PricesPage';
 import { WithdrawPage } from '@/pages/Membership/WithdrawPage';
 
 // Volunteers
-import VolunteersPage from '@/pages/Volunteers/VolunteersPage';
+import { VolunteersPage } from '@/pages/Volunteers/VolunteersPage';
 
 // Contact
 import ContactPage from '@/pages/Contact/ContactPage';
@@ -50,7 +50,7 @@ import PrivacyPage from '@/pages/Legal/PrivacyPage';
 import CookiesPage from '@/pages/Legal/CookiesPage';
 
 // Skagerrak
-import Skagerrak from '@/pages/Skagerrak/SkagerrakPage';
+import SkagerrakPage from '@/pages/Skagerrak/SkagerrakPage';
 
 export default function App() {
   return (
@@ -104,7 +104,7 @@ export default function App() {
             <Route path="/cookies" element={<CookiesPage />} />
 
             {/* Skagerrak */}
-            <Route path="/skagerrak-swim" element={<Skagerrak />} />
+            <Route path="/skagerrak-swim" element={<SkagerrakPage />} />
           </Routes>
         </main>
 
