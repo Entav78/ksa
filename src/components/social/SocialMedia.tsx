@@ -10,15 +10,16 @@ export default function SocialMedia() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <SocialCard
           platform="Instagram"
-          profileUrl="https://instagram.com/dinKlubb"
+          profileUrl="https://www.instagram.com/kristiansandsa/"
         />
         <SocialCard
           platform="TikTok"
-          profileUrl="https://www.tiktok.com/@dinKlubb"
+          profileUrl={undefined} // ← deaktivert
         />
         <SocialCard
           platform="Facebook"
-          profileUrl="https://facebook.com/dinKlubb"
+          profileUrl="https://www.facebook.com/KSA.1922"
+          note="Lukket gruppe – innlogging/medlemskap kreves"
         />
       </div>
     </section>

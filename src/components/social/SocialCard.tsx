@@ -7,6 +7,7 @@ type Props = {
   platform: Platform;
   profileUrl?: string; // ekstern lenke til profilen (valgfritt)
   feedSrc?: string; // embed/iframe URL (valgfritt)
+  note?: string;
 };
 
 const platformIcon: Record<Platform, ReactElement> = {
@@ -15,7 +16,12 @@ const platformIcon: Record<Platform, ReactElement> = {
   TikTok: <FaTiktok className="text-xl" aria-hidden />,
 };
 
-export default function SocialCard({ platform, profileUrl, feedSrc }: Props) {
+export default function SocialCard({
+  platform,
+  profileUrl,
+  feedSrc,
+  note,
+}: Props) {
   const hasFeed = !!feedSrc && /^https?:\/\//.test(feedSrc);
 
   return (
@@ -69,6 +75,9 @@ export default function SocialCard({ platform, profileUrl, feedSrc }: Props) {
           <div className="text-center text-sm text-text/70">
             Lenke kommer snart
           </div>
+        )}
+        {note && (
+          <p className="mt-2 text-center text-xs text-text/60">{note}</p>
         )}
       </div>
     </div>

@@ -29,10 +29,11 @@ const items: PartnerItem[] = [
 ];
 
 export function HomePage() {
+  const SEARCH_ENABLED = false; // flip til true når klart
   return (
     <section className="my-8 text-center text-text">
       {/* Søk på toppen */}
-      <SiteSearch />
+      {SEARCH_ENABLED ? <SiteSearch /> : null}
 
       {/* Hero-kort til svømmeopplæring */}
       <Link
@@ -41,17 +42,30 @@ export function HomePage() {
       >
         <img
           src={svømmekursImg}
-          alt="Klikk her for å lære mer om svømmeopplæring"
+          alt="Klikk for å lære mer om svømmeopplæring"
           className="rounded-lg shadow-md hover:scale-[1.03] transition-transform duration-300 object-cover h-40 sm:h-52 w-full"
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
         />
+
+        {/* Mørk overlay for bedre lesbarhet */}
+        <div
+          className="absolute inset-0 rounded-lg bg-black/35 pointer-events-none"
+          aria-hidden
+        />
+
+        {/* Knapp */}
         <span
           className="
-            absolute bottom-3 left-1/2 -translate-x-1/2
-            px-5 py-2 rounded-lg text-sm sm:text-base
-            transition-opacity duration-300
-            bg-[var(--overlay-color)] text-text
-            group-hover:opacity-90
-          "
+      absolute bottom-3 left-1/2 -translate-x-1/2
+      inline-flex items-center justify-center
+      rounded-xl px-5 py-2 text-sm sm:text-base font-semibold
+      bg-primary-600 text-white shadow-md
+      hover:bg-primary-700 active:bg-primary-800
+      focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500
+      transition
+    "
         >
           Finn svømmeopplæring
         </span>

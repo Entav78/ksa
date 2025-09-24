@@ -1,6 +1,7 @@
 import { createPortal } from 'react-dom';
 import { Link, useLocation } from 'react-router-dom';
 import { useIsMobile } from '@/hooks/useIsMobile';
+import { NAV_ITEMS } from '@/config/nav';
 
 type Props = { open: boolean; onClose: () => void };
 
@@ -18,42 +19,13 @@ export function MenuOverlay({ open, onClose }: Props) {
     focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40
   `;
 
-  const items: Array<{ label: string; to: string }> = [
-    { label: 'Forside', to: '/' },
+  const isActive = (path: string) => {
+    // Little helper that treats "/x" and "/x/" as the same
+    const norm = (p: string) => p.replace(/\/+$/, '') || '/';
+    return norm(location.pathname) === norm(path);
+  };
 
-    // Kurs / opplæring
-    { label: 'Svømmeopplæring', to: '/kurs' },
-
-    // Trening
-    { label: 'Treningstider', to: '/treningstider' },
-    { label: 'Terminliste', to: '/terminliste' },
-    { label: 'Grupper', to: '/grupper' },
-    { label: 'Trenere', to: '/trenere' },
-    { label: 'Utstyr', to: '/utstyr' },
-
-    // Medlemskap
-    { label: 'Medlemskap', to: '/medlemskap' },
-    { label: 'Ny i klubben', to: '/ny-i-klubben' },
-
-    // Om klubben
-    { label: 'Om klubben', to: '/om' },
-    { label: 'Verdier & mål', to: '/om/verdier-mal' },
-    { label: 'Styret & organisasjon', to: '/om/styret' },
-    { label: 'Årsmøter', to: '/om/arsmoter' },
-
-    // Dugnader
-    { label: 'Dugnad', to: '/dugnad' },
-
-    // Kontakt
-    { label: 'Kontakt', to: '/kontakt' },
-    { label: 'Hvor trener vi?', to: '/kontakt/steder' },
-    { label: 'Sosiale medier', to: '/sosiale-medier' },
-
-    // Eksternt innhold / egen side
-    { label: 'Skagerrak Swim', to: '/skagerrak-swim' },
-  ];
-
-  const isActive = (path: string) => location.pathname === path;
+  const publishedItems = NAV_ITEMS.filter((i) => i.published);
 
   return createPortal(
     <div className="fixed inset-0 z-[1000]">
@@ -101,7 +73,7 @@ export function MenuOverlay({ open, onClose }: Props) {
         </div>
 
         <nav className="flex flex-col px-4 py-6 space-y-4 text-lg">
-          {items.map(({ label, to }) => (
+          {publishedItems.map(({ label, to }) => (
             <Link
               key={to}
               to={to}
