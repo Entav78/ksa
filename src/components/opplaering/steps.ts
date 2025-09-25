@@ -10,7 +10,7 @@ export const steps: Step[] = [
       message: 'Vi anbefaler hvalmerket for barn som er skeptiske til vann.',
       link: 'https://tryggivann.no/finnkursklubb.aspx?arr=68&kurstype=2',
     },
-    image: '/img/opplaering/hvalmerket.png',
+    image: '/img/hvalmerket.png',
   },
   {
     question:
@@ -22,7 +22,7 @@ export const steps: Step[] = [
       link: 'https://tryggivann.no/finnkursklubb.aspx?arr=68&kurstype=2',
     },
     yesNextIndex: 2,
-    image: '/img/opplaering/hvalmerket.png',
+    image: '/img/hvalmerket.png',
   },
   {
     question:
@@ -34,7 +34,7 @@ export const steps: Step[] = [
       link: 'https://tryggivann.no/finnkursklubb.aspx?arr=68&kurstype=2',
     },
     yesNextIndex: 3,
-    image: '/img/opplaering/hvalmerket.png',
+    image: '/img/hvalmerket.png',
   },
   {
     question:
@@ -46,7 +46,7 @@ export const steps: Step[] = [
       link: 'https://tryggivann.no/finnkursklubb.aspx?arr=68&kurstype=3',
     },
     yesNextIndex: 4,
-    image: '/img/opplaering/skilpaddemerket.png',
+    image: '/img/skilpaddemerket.png',
   },
   {
     question:
@@ -57,7 +57,7 @@ export const steps: Step[] = [
       link: 'https://tryggivann.no/finnkursklubb.aspx?arr=68&kurstype=4',
     },
     yesNextIndex: 5,
-    image: '/img/opplaering/pingvinmerket.png',
+    image: '/img/pingvinmerket.png',
   },
   {
     question: 'Kan barnet svømme 15 m crawl og 15 m ryggcrawl?',
@@ -68,7 +68,7 @@ export const steps: Step[] = [
       link: 'https://tryggivann.no/finnkursklubb.aspx?arr=68&kurstype=5',
     },
     yesNextIndex: 6,
-    image: '/img/opplaering/selungenmerket.png',
+    image: '/img/selungenmerket.png',
   },
   {
     question:
@@ -85,6 +85,6 @@ export const steps: Step[] = [
       link: '/kontakt',
       image: '/img/opplaering/gratulerer.gif',
     },
-    image: '/img/opplaering/selmerket.png',
+    image: '/img/selmerket.png',
   },
 ];
