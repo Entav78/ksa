@@ -13,7 +13,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Svømmeopplæring', to: '/kurs', published: true },
 
   // Trening
-  { label: 'Treningstider', to: '/treningstider', published: false }, // ← sett true når klar
+  { label: 'Treningstider', to: '/treningstider', published: true }, // ← sett true når klar
   { label: 'Terminliste', to: '/terminliste', published: false },
   { label: 'Grupper', to: '/grupper', published: false },
   { label: 'Trenere', to: '/trenere', published: false },
