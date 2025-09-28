@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kristiansandsvommeallianse.netlify.app/sitemap.xml

@@ -1,4 +1,3 @@
-import { createPortal } from 'react-dom';
 import { Link, useLocation } from 'react-router-dom';
 import { useIsMobile } from '@/hooks/useIsMobile';
 import { NAV_ITEMS } from '@/config/nav';
@@ -6,8 +5,6 @@ import { NAV_ITEMS } from '@/config/nav';
 type Props = { open: boolean; onClose: () => void };
 
 export function MenuOverlay({ open, onClose }: Props) {
-  if (!open) return null;
-
   const location = useLocation();
   const isMobile = useIsMobile();
 
@@ -20,18 +17,27 @@ export function MenuOverlay({ open, onClose }: Props) {
   `;
 
   const isActive = (path: string) => {
-    // Little helper that treats "/x" and "/x/" as the same
     const norm = (p: string) => p.replace(/\/+$/, '') || '/';
     return norm(location.pathname) === norm(path);
   };
 
-  const publishedItems = NAV_ITEMS.filter((i) => i.published);
+  const items = NAV_ITEMS.filter((i) => i.published);
 
-  return createPortal(
-    <div className="fixed inset-0 z-[1000]">
+  return (
+    // Alltid montert; vi skrur av pek og skjuler med CSS
+    <div
+      className={`
+        fixed inset-0 z-[1000]
+        ${open ? 'pointer-events-auto' : 'pointer-events-none'}
+      `}
+      aria-hidden={!open}
+    >
       {/* bakgrunn */}
       <button
-        className="absolute inset-0 bg-overlay backdrop-blur-sm"
+        className={`
+          absolute inset-0 bg-overlay backdrop-blur-sm transition-opacity
+          ${open ? 'opacity-100' : 'opacity-0'}
+        `}
         onClick={onClose}
         aria-label="Lukk meny"
       />
@@ -39,14 +45,15 @@ export function MenuOverlay({ open, onClose }: Props) {
       {/* panel */}
       <aside
         role="dialog"
-        aria-modal="true"
+        aria-modal={open ? 'true' : undefined}
         className={`
           absolute right-0 top-0 h-screen
           w-full sm:max-w-sm
           bg-background text-text
           shadow-xl border-l border-border
           transform transition-transform duration-300
-          ${isMobile ? 'animate-fadeIn' : 'translate-x-0'}
+          ${open ? 'translate-x-0' : 'translate-x-full'}
+          ${isMobile ? '' : ''}
         `}
       >
         <div className="flex justify-between items-center px-4 pt-6 pb-4 border-b border-border">
@@ -73,7 +80,7 @@ export function MenuOverlay({ open, onClose }: Props) {
         </div>
 
         <nav className="flex flex-col px-4 py-6 space-y-4 text-lg">
-          {publishedItems.map(({ label, to }) => (
+          {items.map(({ label, to }) => (
             <Link
               key={to}
               to={to}
@@ -86,7 +93,6 @@ export function MenuOverlay({ open, onClose }: Props) {
           ))}
         </nav>
       </aside>
-    </div>,
-    document.body
+    </div>
   );
 }
