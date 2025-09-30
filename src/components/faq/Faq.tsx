@@ -5,23 +5,23 @@ type FaqItem = { q: string; a: string };
 const defaultFaq: FaqItem[] = [
   {
     q: 'Hvem passer svømmeopplæringen for?',
-    a: 'Barn fra nybegynner til viderekommende – se nivåbeskrivelser.',
+    a: 'Barn fra 5 år og oppover. På nybegynnerkursene (Hval, Skilpadde, Pingvin, Selunge) må barnet kunne stå på ca. 90 cm dybde. Se nivåbeskrivelsene for å finne riktig kurs.',
   },
   {
     q: 'Hva bør vi ha med?',
-    a: 'Badetøy, håndkle og evt. svømmebriller (NB svømmebriller skal ikke brukes på Hval, Skilpadde og Pingvin). Langt hår: bruk strikk eller badehette.',
+    a: 'Badetøy, håndkle og ev. svømmebriller. NB: Svømmebriller brukes ikke på Hval, Skilpadde og Pingvin. Barn med langt hår bruker strikk eller badehette.',
   },
   {
     q: 'Hvor lenge varer et kurs?',
-    a: 'Vanligvis 10 uker med én økt i uka, med unntak for ferie/helligdager.',
+    a: 'En ordinær kursrunde varer 10 uker med én kursdag per uke. Det tas hensyn til skoleferier. Nybegynnerkursene (Hval, Skilpadde, Pingvin, Selunge) har 30 minutter per økt, mens videregående kurs (Sel, Sjøløve) har 45 minutter.',
   },
   {
     q: 'Hvordan melder jeg på?',
-    a: 'Via Tryggivann – lenken på siden ‘Svømmeopplæring’ tar deg rett til KSA sine kurs.',
+    a: 'Via Trygg i vann – lenken på siden «Svømmeopplæring» tar deg rett til KSA sine kurs.',
   },
   {
     q: 'Hva hvis nivået ikke passer?',
-    a: 'Snakk med instruktør etter økten, så hjelper vi med å justere nivå. Instruktør tar kontakt med deg dersom det anbefales å bytte til et annet kurs.',
+    a: 'Snakk med instruktøren etter økten, så hjelper vi med å justere. Instruktør tar også kontakt dersom det anbefales bytte til et annet kurs.',
   },
 ];
 
