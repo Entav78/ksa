@@ -107,7 +107,7 @@ npm run preview
 
 ## License
 
-MIT License © Kristiansand Svømmeallianse.
+All rights reserved © Kristiansand Svømmeallianse.
 
 ---
 
