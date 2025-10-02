@@ -89,17 +89,25 @@ npm run preview
 
 ## SEO
 
-- `public/robots.txt` included.  
-- **Recommended:** add domain to **Google Search Console** (and optionally **Bing Webmaster Tools**).
+- `public/robots.txt` is included (allow all; optional `Sitemap: https://ksa.no/sitemap.xml`).
+- Add the site to **Google Search Console** (Domain property recommended) and submit the sitemap if/when available.
+- Optional: add to **Bing Webmaster Tools**.
+- (Nice-to-have) Ensure a `<link rel="canonical" href="https://ksa.no/">` and a concise meta description on key pages.
 
 ## Troubleshooting
 
-- DNS propagation can take time (up to ~24h).  
-- If Chrome shows a stale certificate after migration, clearing **SSL state** or HSTS cache locally usually fixes it (Windows: *Internet Options → Content → Clear SSL state*).
+- DNS changes can take time to propagate (typically minutes, but up to ~24h).
+- Certificate errors after migration:
+  - Verify apex (`ksa.no`) has A-records → `75.2.60.5`, `99.83.190.102`, and `www.ksa.no` → CNAME `kristiansandsvommeallianse.netlify.app`.
+  - In Netlify, use **Verify DNS configuration** under HTTPS if needed.
+  - If Chrome shows a stale cert, clear local cache:
+    - **Windows**: *Internet Options → Content → Clear SSL state*.
+    - Or clear HSTS: `chrome://net-internals/#hsts` → **Delete domain security policies** for `ksa.no`.
+    - Hard refresh: `Ctrl+F5`.
 
 ## License
 
-MIT (or adjust to the organization’s policy).
+MIT License © Kristiansand Svømmeallianse.
 
 ---
 
