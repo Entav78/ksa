@@ -7,6 +7,7 @@ import skagerrak from '@/assets/logoer/skagerrak.png';
 import SocialMedia from '@/components/social/SocialMedia';
 import { PartnerGrid, PartnerItem } from '@/components/home/PartnerGrid';
 import { SiteSearch } from '@/components/search/SiteSearch';
+import UnderConstructionBanner from '@/components/UnderConstructionBanner';
 
 const items: PartnerItem[] = [
   {
@@ -33,6 +34,7 @@ export function HomePage() {
   const SEARCH_ENABLED = false; // flip til true når klart
   return (
     <>
+      <UnderConstructionBanner />
       <PageSEO
         title="Kristiansand Svømmeallianse – Svømmeopplæring, kurs og trening"
         description="Finn svømmeopplæring og kurs hos KSA. Vi skaper svømmeglede for alle – fra nybegynner til mester."
