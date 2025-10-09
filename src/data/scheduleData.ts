@@ -1,5 +1,5 @@
 // data/scheduleData.ts
-export const lastUpdated = '2025-05-10'; // ISO YYYY-MM-DD
+export const lastUpdated = '2025-10-09'; // ISO YYYY-MM-DD
 // ...export const scheduleData = [...]
 
 export type ScheduleEntry = {
@@ -35,9 +35,9 @@ export const scheduleData: ScheduleEntry[] = [
   {
     group: 'A',
     day: 'Onsdag',
-    time: '15:45 - 17:30',
+    time: '15:45 - 19:00',
     location: 'Aquarama',
-    basis: 'no',
+    basis: 'yes',
   },
   {
     group: 'A',
@@ -91,7 +91,7 @@ export const scheduleData: ScheduleEntry[] = [
   {
     group: 'B',
     day: 'Torsdag',
-    time: '18:00 - 21:00',
+    time: '16:00 - 17:30',
     location: 'Aquarama',
     basis: 'yes',
   },
@@ -112,7 +112,7 @@ export const scheduleData: ScheduleEntry[] = [
   {
     group: 'C',
     day: 'Mandag',
-    time: '16:00 - 18:00',
+    time: '17:30 - 19:00',
     location: 'Aquarama',
     basis: 'no',
   },
@@ -140,7 +140,7 @@ export const scheduleData: ScheduleEntry[] = [
   {
     group: 'C',
     day: 'Lørdag',
-    time: '08:00 - 10:00',
+    time: '07:00 - 09:00',
     location: 'Aquarama',
     basis: 'no',
   },
@@ -154,7 +154,7 @@ export const scheduleData: ScheduleEntry[] = [
   {
     group: 'D',
     day: 'Onsdag',
-    time: '17:30 - 18:45',
+    time: '18:30 - 20:30',
     location: 'Aquarama',
     basis: 'yes',
   },
@@ -175,7 +175,7 @@ export const scheduleData: ScheduleEntry[] = [
   {
     group: 'E',
     day: 'Onsdag',
-    time: '19:00 - 20:00',
+    time: '18:00 - 19:00',
     location: 'Aquarama',
     basis: 'no',
   },
