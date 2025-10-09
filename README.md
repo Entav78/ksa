@@ -105,6 +105,10 @@ npm run preview
     - Or clear HSTS: `chrome://net-internals/#hsts` → **Delete domain security policies** for `ksa.no`.
     - Hard refresh: `Ctrl+F5`.
 
+## Note to future me
+
+Footer uses gradient veil tokens: --footer-veil, --footer-veil-strong
+
 ## License
 
 All rights reserved © Kristiansand Svømmeallianse.

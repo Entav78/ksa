@@ -1,46 +1,86 @@
+/* footer.scss */
 .footer {
   position: relative;
   background-image: url('/img/footer-bg.jpg');
   background-size: cover;
-  background-position: bottom;
-  min-height: 6rem;
-
+  background-position: center bottom;
+  min-height: 6.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-block: 1.25rem;
 
-  /* dim/overlay følger tema via --overlay-color */
+  /* footer-local tokens (always dark text/links) */
+  --text-color: #111;
+  --footer-link: #111;
+  --footer-link-hover: #353838;
+
+  /* apply parent declarations BEFORE any nested rules */
+  color: var(--footer-text);
+  /* uses tokens from colors.scss */
+  text-align: center;
+
+  /* stronger, theme-aware veil over the photo */
   &::before {
     content: '';
     position: absolute;
     inset: 0;
-    //background-color: var(--overlay-color);
+    background: linear-gradient(to top,
+        var(--footer-veil-strong) 0%,
+        var(--footer-veil) 100%);
+    backdrop-filter: blur(2px);
     z-index: 0;
   }
 
-    /* alt innhold over overlay */
-  * {
+  /* content layer */
+  >* {
     position: relative;
     z-index: 1;
   }
 }
 
-/* Innholdsstil – bruk tokens */
 .footer__inner {
-  /* bakgrunn spaner ikke hele (vi har foto bak), men vi setter tekstfarger osv. */
-  color: var(--text-color);
+  color: inherit;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  display: grid;
+  gap: 0.25rem;
 }
 
-/* Tekst-spacing */
-footer p {
-  padding-bottom: 2rem; 
+.footer__row {
+  display: inline-flex;
+  gap: .5rem;
+  align-items: baseline;
 }
-  
-/* Lenker følger primær/sekundær */
+
+.footer :where(p, span, small, li, strong, em) {
+  color: var(--footer-text) !important;
+}
+
 .footer a {
-  color: var(--primary-color);
+  color: var(--footer-link) !important;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 500;
 }
 
 .footer a:hover {
-  color: var(--secondary-color);
+  color: var(--footer-link-hover) !important;
+}
+
+.footer a:focus-visible {
+  color: var(--footer-link-hover);
+  outline: 2px solid var(--footer-link);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+@media (max-width: 420px) {
+  .footer {
+    padding-block: 1rem;
+  }
+
+  .footer__inner {
+    font-size: .9rem;
+  }
 }

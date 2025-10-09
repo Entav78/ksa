@@ -14,6 +14,18 @@
   --overlay-color: rgba(0, 0, 0, 0.6);
   --yes-color: #28a745; // grønn
   --no-color: #dc3545; // rød
+  --footer-pill-bg: rgba(255, 255, 255, 0.80);
+  --footer-pill-text: #111;
+    /* high contrast text */
+  --footer-pill-shadow: 0 2px 8px rgba(0, 0, 0, .12);
+    /* keep a very subtle footer-wide tint so the image never clashes */
+  --footer-grad-top: rgba(0, 0, 0, 0.00);
+  --footer-grad-bottom: rgba(0, 0, 0, 0.10);
+  --footer-text: #111;
+    /* always dark text */
+  --footer-link: #111;
+  --footer-link-hover: #095a6a;
+  --footer-overlay: rgba(255, 255, 255, 0.70);
 }
 
 .dark {
@@ -32,4 +44,16 @@
   --overlay-color: rgba(255, 255, 255, 0.6);
   --yes-color: #34d399; // grønnaktig i dark mode
   --no-color: #f87171; // rødaktig i dark mode
+  /* darker, glassy pill in dark mode */
+  --footer-pill-bg: rgba(0, 0, 0, 0.55);
+  --footer-pill-text: #f5f5f5;
+  --footer-pill-shadow: 0 2px 10px rgba(0, 0, 0, .35);
+  --footer-grad-top: rgba(255, 255, 255, 0.00);
+  --footer-grad-bottom: rgba(255, 255, 255, 0.06);
+  --footer-text: #111;
+    /* keep dark in dark mode too */
+    --footer-link: #111;
+    --footer-link-hover: #21a8a0;
+    /* slightly stronger wash over the photo in dark mode */
+    --footer-overlay: rgba(255, 255, 255, 0.82);
 }
