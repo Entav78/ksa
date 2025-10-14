@@ -32,6 +32,9 @@ export const NAV_ITEMS: NavItem[] = [
   // Dugnader
   { label: 'Dugnad', to: '/dugnad', published: false },
 
+  // Julekalender
+  { label: 'Julekalender 2025', to: '/julekalender/2025', published: true },
+
   // Kontakt
   { label: 'Kontakt', to: '/kontakt', published: false },
   { label: 'Hvor trener vi?', to: '/kontakt/steder', published: false },
