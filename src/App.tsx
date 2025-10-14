@@ -52,6 +52,9 @@ import CookiesPage from '@/pages/Legal/CookiesPage';
 // Skagerrak
 import SkagerrakPage from '@/pages/Skagerrak/SkagerrakPage';
 
+//Julekalender
+import Julekalender2025 from '@/pages/Julekalender/2025';
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -105,6 +108,9 @@ export default function App() {
 
             {/* Skagerrak */}
             <Route path="/skagerrak-swim" element={<SkagerrakPage />} />
+
+            {/* Julekalender */}
+            <Route path="/julekalender/2025" element={<Julekalender2025 />} />
           </Routes>
         </main>
 
