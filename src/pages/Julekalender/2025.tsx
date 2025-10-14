@@ -3,30 +3,29 @@ import raw from '../../data/julekalender-2025.json';
 
 type Luke = {
   day: number;
-  date: string; // "YYYY-MM-DD"
+  date: string; 
   sponsor: string;
   prizeTitle: string;
   prizeValue?: string;
   prizeDesc?: string;
-  logo?: string; // kept in type, but not used here
-  winner?: string; // empty/"—" = not drawn
+  logo?: string; 
+  winner?: string; 
 };
 
 const data: Luke[] = raw as Luke[];
 
-// Oslo-dato i "sv-SE" (YYYY-MM-DD) for enkel sammenligning
+
 const TZ = 'Europe/Oslo';
 const todayISO = new Date().toLocaleDateString('sv-SE', { timeZone: TZ });
 
 function formatDate(nbIso: string) {
-  // "1. desember" på norsk
+ 
   return new Date(nbIso).toLocaleDateString('nb-NO', {
     day: 'numeric',
     month: 'long',
   });
 }
 
-// Prize image from /public/img/julekalender/2025/dayXX.webp
 const imgForDay = (n: number) =>
   `/img/julekalender/2025/day${String(n).padStart(2, '0')}.webp`;
 

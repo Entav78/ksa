@@ -32,6 +32,8 @@ const items: PartnerItem[] = [
 
 export function HomePage() {
   const SEARCH_ENABLED = false; // flip til true når klart
+  // Hide after 25. desember 2025 (local time not critical for CTA)
+  const showJulekalenderCTA = new Date() < new Date('2025-12-25');
   return (
     <>
       <UnderConstructionBanner />
@@ -81,16 +83,38 @@ export function HomePage() {
         </Link>
 
         {/* Intro-tekst */}
-        <h1 className="text-3xl font-bold text-center mt-6">
-          Velkommen til Kristiansand Svømmeallianse
-        </h1>
-        <h2 className="text-xl text-center mt-2 text-text/70">
-          Trygg • Inkluderende • Stolt
-        </h2>
-        <p className="max-w-2xl mx-auto text-center mt-4 text-text/70">
-          Vi skaper svømmeglede for alle – fra nybegynner til mester. Hos oss
-          står vilje, lojalitet og samhold i sentrum.
-        </p>
+        <div className="text-center mt-6 mb-8 space-y-3">
+          <h1 className="text-3xl font-bold">
+            Velkommen til Kristiansand Svømmeallianse
+          </h1>
+          <h2 className="text-xl text-text/70">Trygg • Inkluderende • Stolt</h2>
+          <p className="max-w-2xl mx-auto text-text/70">
+            Vi skaper svømmeglede for alle – fra nybegynner til mester. Hos oss
+            står vilje, lojalitet og samhold i sentrum.
+          </p>
+        </div>
+
+        {showJulekalenderCTA && (
+          <section
+            aria-labelledby="julekalender-cta"
+            className="mb-8 rounded border bg-header/30 p-4"
+          >
+            <h2 id="julekalender-cta" className="text-lg font-semibold">
+              🎄 Julekalender 2025
+            </h2>
+            <p className="mt-1 opacity-90">
+              Se dagens premie og vinner når trekningen er klar i kveld.
+            </p>
+            <div className="mt-3">
+              <Link
+                to="/julekalender/2025"
+                className="inline-flex items-center gap-2 rounded bg-primary px-4 py-2 font-medium text-white hover:bg-[var(--primary-hover)] active:bg-[var(--primary-active)]"
+              >
+                Sjekk trekning i julekalenderen
+              </Link>
+            </div>
+          </section>
+        )}
 
         {/* Sosiale medier + partnere */}
         <SocialMedia />
