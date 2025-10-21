@@ -14,8 +14,10 @@ export default function SocialMedia() {
         />
         <SocialCard
           platform="TikTok"
-          profileUrl={undefined} // ← deaktivert
+          profileUrl="https://www.tiktok.com/@kristiansandsa"
+          note="Åpnes i TikTok (nett/app) innlogging/medlemskap kreves"
         />
+
         <SocialCard
           platform="Facebook"
           profileUrl="https://www.facebook.com/KSA.1922"

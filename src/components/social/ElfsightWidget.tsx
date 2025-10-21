@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 type Props = { appId: string }; // f.eks. "elfsight-app-abc123"
 
-export function ElfsightWidget({ appId }: Props) {
+export default function ElfsightWidget({ appId }: Props) {
   useEffect(() => {
     // Unngå å legge til scriptet flere ganger
     if (!document.querySelector('script[data-elfsight]')) {
