@@ -3,23 +3,21 @@ import raw from '../../data/julekalender-2025.json';
 
 type Luke = {
   day: number;
-  date: string; 
+  date: string;
   sponsor: string;
   prizeTitle: string;
   prizeValue?: string;
   prizeDesc?: string;
-  logo?: string; 
-  winner?: string; 
+  logo?: string;
+  winner?: string;
 };
 
 const data: Luke[] = raw as Luke[];
-
 
 const TZ = 'Europe/Oslo';
 const todayISO = new Date().toLocaleDateString('sv-SE', { timeZone: TZ });
 
 function formatDate(nbIso: string) {
- 
   return new Date(nbIso).toLocaleDateString('nb-NO', {
     day: 'numeric',
     month: 'long',
@@ -65,8 +63,8 @@ export default function Julekalender2025() {
             alt={`Premiebilde – luke ${todayEntry.day}: ${todayEntry.prizeTitle}`}
             className="mt-3 w-full aspect-square object-contain rounded bg-header/20 p-2"
             loading="lazy"
-            width={400}
-            height={400}
+            width={240}
+            height={240}
             onError={(e) => {
               (e.currentTarget as HTMLImageElement).style.display = 'none';
             }}
