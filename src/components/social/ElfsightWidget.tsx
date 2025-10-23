@@ -1,18 +1,23 @@
+// src/components/social/ElfsightWidget.tsx
 import { useEffect } from 'react';
 
-type Props = { appId: string }; // f.eks. "elfsight-app-abc123"
+type Props = { appId: string };
 
 export default function ElfsightWidget({ appId }: Props) {
   useEffect(() => {
-    // Unngå å legge til scriptet flere ganger
-    if (!document.querySelector('script[data-elfsight]')) {
+    const existing = document.querySelector(
+      'script[src*="elfsightcdn.com/platform.js"],script[src*="static.elfsight.com/platform"]'
+    );
+    if (!existing) {
       const s = document.createElement('script');
-      s.src = 'https://static.elfsight.com/platform/platform.js';
+      s.src = 'https://elfsightcdn.com/platform.js';
       s.async = true;
-      s.setAttribute('data-elfsight', 'true');
+      s.setAttribute('data-elfsight', 'true'); // marker so we can detect it later
       document.body.appendChild(s);
     }
   }, []);
 
-  return <div className={appId} />;
+  // The data-elfsight-app-lazy attribute is optional; Elfsight uses it but
+  // the widget also works without it.
+  return <div className={appId} data-elfsight-app-lazy />;
 }

@@ -1,27 +1,31 @@
-import { FaTiktok } from 'react-icons/fa';
+import { FaFacebook } from 'react-icons/fa';
 import ElfsightWidget from '@/components/social/ElfsightWidget';
 
 type Props = {
-  appId?: string; // only required when embed=true
-  profileUrl?: string;
-  note?: string;
-  embed?: boolean; // default false while account is private
-  minHeight?: number; // keeps card height consistent
+  appId?: string; // Elfsight widget ID, only needed when embed=true
+  profileUrl?: string; // external link to your group/page
+  note?: string; // small helper text
+  embed?: boolean; // default false (groups can’t be embedded reliably)
+  minHeight?: number; // keeps layout stable while loading
+  title?: string; // header title (defaults to "Facebook")
+  ctaLabel?: string; // button label (defaults to "Åpne Facebook")
 };
 
-export default function TikTokCard({
+export default function FacebookCard({
   appId,
   profileUrl,
   note,
   embed = false,
   minHeight = 360,
+  title = 'Facebook',
+  ctaLabel = 'Åpne Facebook',
 }: Props) {
   return (
     <div className="rounded-xl border border-border bg-background text-text shadow-sm overflow-hidden">
       {/* Header */}
       <div className="flex items-center gap-3 px-4 py-3 border-b border-border">
-        <FaTiktok className="text-xl" aria-hidden />
-        <h3 className="font-semibold">TikTok</h3>
+        <FaFacebook className="text-xl" aria-hidden />
+        <h3 className="font-semibold">{title}</h3>
       </div>
 
       {/* Body */}
@@ -35,7 +39,7 @@ export default function TikTokCard({
             className="h-28 sm:h-40 rounded-lg flex items-center justify-center bg-hover text-text/70 text-center px-4"
             aria-live="polite"
           >
-            TikTok-feed publiseres når kontoen er offentlig 🎬
+            Facebook-feed vises her når vi kan embedde en offentlig side.
           </div>
         )}
       </div>
@@ -51,7 +55,7 @@ export default function TikTokCard({
                        bg-primary text-text hover:opacity-90 transition focus:outline-none
                        focus:ring-2 focus:ring-primary/50"
           >
-            Åpne TikTok-profil
+            {ctaLabel}
           </a>
         ) : (
           <div className="text-center text-sm text-text/70">

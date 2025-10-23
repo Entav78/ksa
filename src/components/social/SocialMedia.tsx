@@ -1,4 +1,7 @@
-import SocialCard from '@/components/social/SocialCard';
+import InstagramCard from '@/components/social/InstagramCard';
+//import SocialCard from '@/components/social/SocialCard'; // keep for TikTok/Facebook link-style
+import TikTokCard from '@/components/social/TikTokCard';
+import FacebookCard from '@/components/social/FacebookCard';
 
 export default function SocialMedia() {
   return (
@@ -8,20 +11,23 @@ export default function SocialMedia() {
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <SocialCard
-          platform="Instagram"
+        <InstagramCard
+          appId="elfsight-app-eee592a6-329a-4858-8b68-3578bf6a2fb7"
           profileUrl="https://www.instagram.com/kristiansandsa/"
         />
-        <SocialCard
-          platform="TikTok"
+
+        {/* TikTok – link-only (until you decide to embed) */}
+        <TikTokCard
           profileUrl="https://www.tiktok.com/@kristiansandsa"
-          note="Åpnes i TikTok (nett/app) innlogging/medlemskap kreves"
+          note="Lukket gruppe – innlogging/medlemskap kreves"
+          embed={false}
         />
 
-        <SocialCard
-          platform="Facebook"
+        {/* Facebook – link-only (closed group) */}
+        <FacebookCard
           profileUrl="https://www.facebook.com/KSA.1922"
           note="Lukket gruppe – innlogging/medlemskap kreves"
+          embed={false}
         />
       </div>
     </section>
