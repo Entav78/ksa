@@ -35,9 +35,13 @@ export default function InstagramCard({
             href={profileUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex w-full justify-center rounded-md px-4 py-2 text-sm
-                     bg-primary text-text hover:opacity-90 transition
-                     focus:outline-none focus:ring-2 focus:ring-primary/50"
+            className="
+  inline-flex items-center justify-center w-full rounded-md px-4 py-2 text-sm
+  bg-primary text-white dark:text-black             /* ← key change */
+  hover:bg-[var(--primary-hover)] active:bg-[var(--primary-active)]
+  transition
+  focus:outline-none focus:ring-2 focus:ring-[var(--primary-active)] focus:ring-offset-2 focus:ring-offset-background
+"
             aria-label="Åpne KSA på Instagram"
           >
             Åpne i Instagram

@@ -61,14 +61,14 @@ export function KursPage() {
               target="_blank"
               rel="noopener noreferrer"
               className="
-    inline-flex items-center rounded-xl px-5 py-3 font-semibold
-    shadow-md border border-border
-    bg-[var(--primary-color)] text-white
-    hover:bg-[var(--primary-hover)] active:bg-[var(--primary-active)]
-    focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
-    focus-visible:ring-[var(--primary-color)]
-    transition
-  "
+  inline-flex items-center rounded-xl px-5 py-3 font-semibold
+  shadow-md border border-border
+  bg-[var(--primary-color)] text-white dark:text-black
+  hover:bg-[var(--primary-hover)] active:bg-[var(--primary-active)]
+  focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
+  focus-visible:ring-[var(--primary-color)]
+  transition
+"
             >
               Gå til påmelding i Trygg i vann
             </a>

@@ -39,7 +39,7 @@ export default function FacebookCard({
             className="h-28 sm:h-40 rounded-lg flex items-center justify-center bg-hover text-text/70 text-center px-4"
             aria-live="polite"
           >
-            Facebook-feed vises her når vi kan embedde en offentlig side.
+            Facebook-feed vises her når kontoen er offentlig.
           </div>
         )}
       </div>
@@ -51,9 +51,13 @@ export default function FacebookCard({
             href={profileUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center w-full rounded-md px-4 py-2 text-sm
-                       bg-primary text-text hover:opacity-90 transition focus:outline-none
-                       focus:ring-2 focus:ring-primary/50"
+            className="
+  inline-flex items-center justify-center w-full rounded-md px-4 py-2 text-sm
+  bg-primary text-white dark:text-black             /* ← key change */
+  hover:bg-[var(--primary-hover)] active:bg-[var(--primary-active)]
+  transition
+  focus:outline-none focus:ring-2 focus:ring-[var(--primary-active)] focus:ring-offset-2 focus:ring-offset-background
+"
           >
             {ctaLabel}
           </a>
