@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
-import raw from '../../data/julekalender-2025.json';
+import raw from '@/data/julekalender-2025.json';
 
 type Luke = {
   day: number;
@@ -8,30 +8,37 @@ type Luke = {
   prizeTitle: string;
   prizeValue?: string;
   prizeDesc?: string;
-  logo?: string;
-  winner?: string;
+  logo?: string; // optional: will be used if present
+  winner?: string; // non-empty = drawn
 };
 
 const data: Luke[] = raw as Luke[];
 
+// Stable "today" in Oslo, formatted as YYYY-MM-DD (sv-SE gives ISO-like)
 const TZ = 'Europe/Oslo';
 const todayISO = new Date().toLocaleDateString('sv-SE', { timeZone: TZ });
 
 function formatDate(nbIso: string) {
+  // "1. desember"
   return new Date(nbIso).toLocaleDateString('nb-NO', {
     day: 'numeric',
     month: 'long',
   });
 }
 
-const imgForDay = (n: number) =>
-  `/img/julekalender/2025/day${String(n).padStart(2, '0')}.webp`;
+// fallback (old day image) if no logo is provided
+const fallbackForDay = (n: number) =>
+  `/img/julekalender/2025/logos/day${String(n).padStart(2, '0')}.webp`;
+
+// Prefer logo if provided; otherwise use day fallback
+const srcFor = (d: Luke) => d.logo ?? fallbackForDay(d.day);
+
+const isDrawn = (d: Luke) =>
+  !!(d.winner && d.winner.trim() !== '—' && d.winner.trim() !== '');
 
 export default function Julekalender2025() {
   const sorted = [...data].sort((a, b) => a.day - b.day);
   const todayEntry = sorted.find((d) => d.date === todayISO);
-
-  const isDrawn = (d: Luke) => !!(d.winner && d.winner !== '—');
 
   return (
     <main className="container mx-auto px-4 py-8">
@@ -57,18 +64,20 @@ export default function Julekalender2025() {
             <strong>Sponsor:</strong> {todayEntry.sponsor}
           </div>
 
-          {/* Only the day image */}
-          <img
-            src={imgForDay(todayEntry.day)}
-            alt={`Premiebilde – luke ${todayEntry.day}: ${todayEntry.prizeTitle}`}
-            className="mt-3 w-full aspect-square object-contain rounded bg-header/20 p-2"
-            loading="lazy"
-            width={240}
-            height={240}
-            onError={(e) => {
-              (e.currentTarget as HTMLImageElement).style.display = 'none';
-            }}
-          />
+          {/* Smaller, fixed-height image box for consistent layout */}
+          <div className="mt-2 rounded bg-header/20 p-2 flex items-center justify-center h-28 sm:h-32 lg:h-36">
+            <img
+              src={srcFor(todayEntry)}
+              alt={`${todayEntry.sponsor} – luke ${todayEntry.day}`}
+              className="max-h-full max-w-full object-contain"
+              loading="lazy"
+              width={300}
+              height={300}
+              onError={(e) =>
+                ((e.currentTarget as HTMLImageElement).style.display = 'none')
+              }
+            />
+          </div>
 
           <p className="mt-2">
             {isDrawn(todayEntry) ? (
@@ -91,27 +100,28 @@ export default function Julekalender2025() {
         </section>
       )}
 
-      <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 items-stretch">
+      {/* Denser grid; smaller card paddings; consistent image box height */}
+      <section className="grid gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 items-stretch">
         {sorted.map((d) => {
           const today = d.date === todayISO;
           return (
             <article
               id={`luke-${d.day}`}
               key={d.day}
-              className={`h-full flex flex-col rounded border p-4 bg-background ${
+              className={`h-full flex flex-col rounded border p-3 bg-background ${
                 today ? 'ring-2 ring-primary/60' : ''
               }`}
             >
-              <div className="mb-2 text-sm opacity-70">
+              <div className="mb-1 text-xs opacity-70">
                 {formatDate(d.date)}
               </div>
-              <h3 className="text-lg font-semibold">Luke {d.day}</h3>
+              <h3 className="text-base font-semibold">Luke {d.day}</h3>
 
-              {/* Sponsor + prize */}
-              <div className="mt-2">
-                <div className="font-medium">{d.sponsor}</div>
+              {/* Sponsor + prize (compact) */}
+              <div className="mt-1">
+                <div className="font-medium text-sm">{d.sponsor}</div>
               </div>
-              <div className="mt-2">
+              <div className="mt-1 text-sm">
                 <div>
                   <strong>Premie:</strong> {d.prizeTitle}
                   {d.prizeValue ? ` – ${d.prizeValue}` : ''}
@@ -119,21 +129,24 @@ export default function Julekalender2025() {
                 {d.prizeDesc && <div className="opacity-80">{d.prizeDesc}</div>}
               </div>
 
-              {/* Bilde – holder høyden konsekvent */}
-              <img
-                src={imgForDay(d.day)}
-                alt={`Premiebilde – luke ${d.day}: ${d.prizeTitle}`}
-                className="mt-3 w-full aspect-square object-contain rounded bg-header/20 p-2"
-                loading="lazy"
-                width={400}
-                height={400}
-                onError={(e) => {
-                  (e.currentTarget as HTMLImageElement).style.display = 'none';
-                }}
-              />
+              {/* Smaller, fixed-height image box */}
+              <div className="mt-2 rounded bg-header/20 p-2 flex items-center justify-center h-24 sm:h-28 lg:h-32">
+                <img
+                  src={srcFor(d)}
+                  alt={`${d.sponsor} – luke ${d.day}`}
+                  className="max-h-full max-w-full object-contain"
+                  loading="lazy"
+                  width={300}
+                  height={300}
+                  onError={(e) =>
+                    ((e.currentTarget as HTMLImageElement).style.display =
+                      'none')
+                  }
+                />
+              </div>
 
-              {/* STATUS FOOTER – sticks to bottom */}
-              <div className="mt-auto pt-3">
+              {/* Status stuck to bottom */}
+              <div className="mt-auto pt-2">
                 {isDrawn(d) ? (
                   <div className="inline-flex items-center gap-2 rounded bg-yes/15 px-2 py-1 text-yes">
                     Vinner: {d.winner}
