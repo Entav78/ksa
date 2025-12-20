@@ -1,3 +1,16 @@
+
+## Ownership & Handover
+
+This repository and site are intended to be maintained by Kristiansand Svømmeallianse.
+All ongoing responsibility for content, hosting, third-party services, and billing
+should reside with the club (or its designated maintainers), not the original developer.
+
+Before final handover, ensure:
+
+- GitHub repo access is owned by KSA (organization or designated admins)
+- Netlify site access is granted to KSA maintainers (Admin)
+- Any third-party services are registered under KSA-owned accounts
+
 # Kristiansand Svømmeallianse — Website
 
 **Live:** [ksa.no](https://ksa.no)  
@@ -81,6 +94,25 @@ npm run preview
 - **FAQ:** `src/components/faq/Faq`  
   Includes: minimum age (5 years), ability to stand at 90 cm for beginners, 10‑week rounds, 30/45‑min durations by level.
 
+## Julekalender 2025
+
+The Christmas calendar is content-driven and updated manually.
+
+Data file:
+src/data/julekalender-2025.json
+
+Update flow:
+
+1. Edit the JSON file (e.g. add winner name/date)
+2. Commit changes
+3. Push to main
+4. Netlify deploys automatically
+
+Notes:
+
+- No CMS or automation is involved
+- main always reflects live production
+
 ## Accessibility & Performance
 
 - Semantic HTML, focus states, color contrast.
@@ -114,6 +146,23 @@ Footer uses gradient veil tokens: --footer-veil, --footer-veil-strong
 All rights reserved © Kristiansand Svømmeallianse.
 
 ---
+
+## Third-party services & billing
+
+The site may use external widgets or services (e.g. social embeds).
+It is recommended that Kristiansand Svømmeallianse maintains its own
+accounts for any such services.
+
+Before or after handover:
+
+- Verify no services are billed to a private account
+- Replace widget IDs or API keys with KSA-owned ones if applicable
+
+Note: The current Instagram embed is implemented via Elfsight
+using a free-tier configuration. Usage limits may apply.
+It is recommended that Kristiansand Svømmeallianse sets up
+its own Elfsight (or alternative) account and replaces the
+widget ID if continued use is desired.
 
 ### Norwegian summary
 
