@@ -13,7 +13,7 @@ Before final handover, ensure:
 
 # Kristiansand Svømmeallianse — Website
 
-**Live:** [ksa.no](https://ksa.no)  
+**Live:** [ksa.no](https://www.ksa.no/)  
 **Fallback:** [Netlify fallback](https://kristiansandsvommeallianse.netlify.app/)
 
 This is the official website for **Kristiansand Svømmeallianse (KSA)**. It presents information about the club, swimming course levels and signup, FAQs, and social links. The site is a fast, modern static app built for easy maintenance and reliable hosting.
@@ -166,4 +166,4 @@ widget ID if continued use is desired.
 
 ### Norwegian summary
 
-Dette repoet inneholder KSA sin nettside (React/TypeScript, Vite, Tailwind, Netlify). Påmelding til kurs håndteres via **Tryggivann**; lenker vedlikeholdes i `src/data/tryggivannLinks.ts`. Nettsiden leveres på **<https://ksa.no>** med automatisk HTTPS (Let’s Encrypt).
+Dette repoet inneholder KSA sin nettside (React/TypeScript, Vite, Tailwind, Netlify). Påmelding til kurs håndteres via **Tryggivann**; lenker vedlikeholdes i `src/data/tryggivannLinks.ts`. Nettsiden leveres på **<https://www.ksa.no/>** med automatisk HTTPS (Let’s Encrypt).
